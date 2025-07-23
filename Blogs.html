@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog - [Your Name]</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f7fafc;
+            color: #2d3748;
+        }
+        .portfolio-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Header -->
+    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="index.html" class="text-xl font-bold text-gray-800">[Your Name]</a>
+            <nav>
+                <a href="index.html#contact" class="text-sm text-gray-600 hover:text-blue-500 transition-colors">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="py-20 md:py-28">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h1 class="text-4xl md:text-5xl font-bold text-gray-800">My Blog</h1>
+                <p class="mt-3 text-lg text-gray-600">Thoughts on technology, design, and everything in between.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Blog Post 1 -->
+                <a href="blog-post.html" class="block bg-white rounded-lg shadow-lg overflow-hidden portfolio-card transition">
+                    <img src="https://placehold.co/600x400/EDF2F7/2D3748?text=Blog+Post+1" alt="Blog Post 1" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <p class="text-sm text-gray-500 mb-1">Web Development</p>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Demystifying the Event Loop in JavaScript</h3>
+                        <p class="text-gray-600 mb-4 text-sm">A deep dive into one of the most misunderstood concepts in JavaScript, explained with simple analogies...</p>
+                    </div>
+                </a>
+                <!-- Blog Post 2 -->
+                <a href="blog-post.html" class="block bg-white rounded-lg shadow-lg overflow-hidden portfolio-card transition">
+                    <img src="https://placehold.co/600x400/E2E8F0/2D3748?text=Blog+Post+2" alt="Blog Post 2" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <p class="text-sm text-gray-500 mb-1">UI/UX Design</p>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">5 Principles of User-Centric Design</h3>
+                        <p class="text-gray-600 mb-4 text-sm">Explore the fundamental principles that guide effective and intuitive user interface design...</p>
+                    </div>
+                </a>
+                <!-- Blog Post 3 -->
+                <a href="blog-post.html" class="block bg-white rounded-lg shadow-lg overflow-hidden portfolio-card transition">
+                    <img src="https://placehold.co/600x400/CBD5E0/2D3748?text=Blog+Post+3" alt="Blog Post 3" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <p class="text-sm text-gray-500 mb-1">Productivity</p>
+                        <h3 class="text-xl font-semibold mb-2 text-gray-800">My Favorite Tools for Staying Organized</h3>
+                        <p class="text-gray-600 mb-4 text-sm">A look at the software and techniques I use to manage projects, tasks, and stay productive...</p>
+                    </div>
+                </a>
+                <!-- Add more blog posts here -->
+            </div>
+        </div>
+    </main>
+
+    <footer class="bg-gray-800 text-white py-6">
+        <div class="container mx-auto px-6 text-center text-sm">
+            <p>&copy; 2025 [Your Name]. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+</body>
+</html>
