@@ -89,11 +89,13 @@
     <header class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#home" class="text-xl font-bold text-gray-800">Ankur Vadlamani</a>
-            <nav class="hidden md:flex items-center space-x-8 text-sm">
+            <nav class="hidden md:flex items-center space-x-6 text-sm">
                 <a href="#about" class="text-gray-600 hover:text-blue-500 transition-colors">About</a>
                 <a href="#portfolio" class="text-gray-600 hover:text-blue-500 transition-colors">Portfolio</a>
                 <a href="#experience" class="text-gray-600 hover:text-blue-500 transition-colors">Experience</a>
                 <a href="#education" class="text-gray-600 hover:text-blue-500 transition-colors">Education</a>
+                <a href="#achievements" class="text-gray-600 hover:text-blue-500 transition-colors">Achievements</a>
+                <a href="blogs.html" class="text-gray-600 hover:text-blue-500 transition-colors">Blog</a>
                 <a href="#contact" class="text-gray-600 hover:text-blue-500 transition-colors">Contact</a>
             </nav>
         </div>
@@ -103,9 +105,7 @@
 
         <!-- Hero Section -->
         <section id="home" class="relative min-h-screen flex items-center bg-white pt-16">
-            <!-- UPDATED: Background image with your uploaded picture -->
             <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://i.postimg.cc/hvc859yC/Whats-App-Image-2025-07-22-at-11-28-14-10fbced2.jpg');"></div>
-            <!-- UPDATED: Overlay to ensure text readability -->
             <div class="absolute inset-0 bg-white opacity-80"></div>
             <div class="relative container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-3/5 animated-item">
@@ -113,7 +113,7 @@
                         Crafting Digital Experiences
                     </h1>
                     <p class="mt-4 text-lg text-gray-700 font-medium">
-                        Hi, I'm Ankur Vdlamani, a 4th year B-Tech student at Mahindra University dedicated to building beautiful, functional, and user-centered digital products.
+                        Hi, I'm Ankur Vadlamani, a 4th year B-Tech student from Mahindra Uiversity dedicated to building beautiful, functional, and user-centered digital products.
                     </p>
                     <div class="mt-8 flex flex-wrap gap-4">
                         <a href="#portfolio" class="inline-block bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition-all transform hover:scale-105">
@@ -126,7 +126,7 @@
                     <div class="mt-8 flex space-x-6">
                         <a href="#" class="text-gray-600 hover:text-blue-500"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
                         <a href="#" class="text-gray-600 hover:text-blue-500"><i data-lucide="github" class="w-6 h-6"></i></a>
-                        <a href="mailto:ankurvadlamani@gmail.com" class="text-gray-600 hover:text-blue-500"><i data-lucide="mail" class="w-6 h-6"></i></a>
+                        <a href="mailto:your.email@example.com" class="text-gray-600 hover:text-blue-500"><i data-lucide="mail" class="w-6 h-6"></i></a>
                         <a href="#" class="text-gray-600 hover:text-blue-500"><i data-lucide="youtube" class="w-6 h-6"></i></a>
                     </div>
                 </div>
@@ -145,230 +145,207 @@
                         <p class="text-gray-700 leading-relaxed mb-4">
                             I've spent the last [Number] years honing my skills in web development and design. My journey has taken me through various industries, allowing me to build a diverse portfolio of projects ranging from sleek marketing sites to complex web applications.
                         </p>
-                        <p class="text-gray-700 leading-relaxed">
-                            My philosophy is simple: create things that are not only aesthetically pleasing but also intuitive and accessible. I thrive on solving problems and am constantly learning to keep up with the ever-evolving world of technology.
-                        </p>
                     </div>
                 </div>
-            </div>
-        </section>
-
-        <!-- Portfolio Section -->
-        <section id="portfolio" class="py-20 md:py-28 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="animated-item text-center">
-                    <h2 class="text-3xl font-bold inline-block section-title">My Portfolio</h2>
-                    <p class="mt-2 text-gray-600 max-w-2xl mx-auto">A selection of projects that I'm proud to have worked on.</p>
-                </div>
-                <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                    <!-- Project Cards will be populated by JS -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Experience Section -->
-        <section id="experience" class="py-20 md:py-28">
-            <div class="container mx-auto px-6">
-                <div class="animated-item text-center">
-                    <h2 class="text-3xl font-bold inline-block section-title">Work Experience</h2>
-                </div>
-                <div class="timeline max-w-3xl mx-auto mt-8">
-                    <!-- Experience Item 1 -->
-                    <div class="timeline-item animated-item">
-                        <div class="timeline-icon"><i data-lucide="briefcase"></i></div>
-                        <p class="text-sm text-gray-500">Jan 2022 - Present</p>
-                        <h3 class="text-xl font-semibold text-gray-800">Senior Developer at TechCorp</h3>
-                        <p class="text-gray-600 mt-1">Leading front-end development, mentoring junior developers, and architecting scalable solutions.</p>
-                    </div>
-                    <!-- Experience Item 2 -->
-                    <div class="timeline-item animated-item">
-                        <div class="timeline-icon"><i data-lucide="briefcase"></i></div>
-                        <p class="text-sm text-gray-500">May 2020 - Dec 2021</p>
-                        <h3 class="text-xl font-semibold text-gray-800">Web Developer at Innovate LLC</h3>
-                        <p class="text-gray-600 mt-1">Developed and maintained responsive websites and web applications using React and Node.js.</p>
-                    </div>
-                     <!-- Experience Item 3 -->
-                    <div class="timeline-item animated-item">
-                        <div class="timeline-icon"><i data-lucide="briefcase"></i></div>
-                        <p class="text-sm text-gray-500">June 2019 - Aug 2019</p>
-                        <h3 class="text-xl font-semibold text-gray-800">Software Engineer Intern at WebStart Inc.</h3>
-                        <p class="text-gray-600 mt-1">Assisted the development team in building and testing new features for client websites.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-        
-        <!-- Education Section -->
-        <section id="education" class="py-20 md:py-28 bg-white">
-            <div class="container mx-auto px-6">
-                <div class="animated-item text-center">
-                    <h2 class="text-3xl font-bold inline-block section-title">Education</h2>
-                </div>
-                <div class="timeline max-w-3xl mx-auto mt-8">
-                    <!-- Education Item 1 -->
-                    <div class="timeline-item animated-item">
-                        <div class="timeline-icon"><i data-lucide="graduation-cap"></i></div>
-                        <p class="text-sm text-gray-500">2016 - 2020</p>
-                        <h3 class="text-xl font-semibold text-gray-800">University of Technology</h3>
-                        <p class="text-gray-600 mt-1">Bachelor of Science in Computer Science</p>
-                    </div>
-                     <!-- Education Item 2 -->
-                    <div class="timeline-item animated-item">
-                        <div class="timeline-icon"><i data-lucide="award"></i></div>
-                        <p class="text-sm text-gray-500">2019</p>
-                        <h3 class="text-xl font-semibold text-gray-800">Advanced Web Development Certification</h3>
-                        <p class="text-gray-600 mt-1">Completed an intensive course on modern web technologies.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="py-20 md:py-32">
-            <div class="container mx-auto px-6 text-center">
-                <div class="animated-item">
-                    <h2 class="text-3xl font-bold text-gray-800">Let's Build Something Great</h2>
-                    <p class="mt-3 text-gray-600 max-w-xl mx-auto">
-                        I'm currently available for freelance projects and open to discussing new opportunities. Feel free to reach out.
-                    </p>
-                    <a href="mailto:your.email@example.com" class="mt-8 inline-block bg-blue-500 text-white font-bold px-10 py-4 rounded-lg shadow-lg hover:bg-blue-600 transition-all transform hover:scale-105">
-                        <i data-lucide="mail" class="inline-block mr-2 -mt-1"></i>
-                        Say Hello
-                    </a>
-                </div>
-            </div>
-        </section>
-
-    </main>
+            </section>
     
-    <!-- Project Modal -->
-    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
-        <div id="modal-content" class="bg-white rounded-lg shadow-2xl w-full max-w-3xl max-h-full overflow-y-auto">
-            <!-- Modal content will be populated by JS -->
-        </div>
-    </div>
-
-
-    <footer class="bg-gray-800 text-white py-6">
-        <div class="container mx-auto px-6 text-center text-sm">
-            <p>&copy; 2025 [Your Name]. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
+            <!-- Portfolio Section -->
+            <section id="portfolio" class="py-20 md:py-28 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="animated-item text-center">
+                        <h2 class="text-3xl font-bold inline-block section-title">My Portfolio</h2>
+                        <p class="mt-2 text-gray-600 max-w-2xl mx-auto">A selection of projects that I'm proud to have worked on.</p>
+                    </div>
+                    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                        <!-- Project Cards will be populated by JS -->
+                    </div>
+                </div>
+            </section>
+    
+            <!-- Experience Section -->
+            <section id="experience" class="py-20 md:py-28">
+                <div class="container mx-auto px-6">
+                    <div class="animated-item text-center">
+                        <h2 class="text-3xl font-bold inline-block section-title">Work Experience</h2>
+                    </div>
+                    <div class="timeline max-w-3xl mx-auto mt-8">
+                        <div class="timeline-item animated-item">
+                            <div class="timeline-icon"><i data-lucide="briefcase"></i></div>
+                            <p class="text-sm text-gray-500">Jan 2022 - Present</p>
+                            <h3 class="text-xl font-semibold text-gray-800">Senior Developer at TechCorp</h3>
+                            <p class="text-gray-600 mt-1">Leading front-end development, mentoring junior developers, and architecting scalable solutions.</p>
+                        </div>
+                        <div class="timeline-item animated-item">
+                            <div class="timeline-icon"><i data-lucide="briefcase"></i></div>
+                            <p class="text-sm text-gray-500">May 2020 - Dec 2021</p>
+                            <h3 class="text-xl font-semibold text-gray-800">Web Developer at Innovate LLC</h3>
+                            <p class="text-gray-600 mt-1">Developed and maintained responsive websites and web applications using React and Node.js.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
             
-            const projects = [
-                {
-                    id: 1,
-                    title: "Corporate Website Redesign",
-                    category: "Web Design",
-                    image: "https://placehold.co/600x400/BEE3F8/2C5282?text=Project+A",
-                    detailImage: "https://placehold.co/800x500/BEE3F8/2C5282?text=Project+A+Detail",
-                    description: "A complete overhaul of a legacy website to improve user experience and modernize the brand. The project involved user research, wireframing, UI design, and front-end development, resulting in a 40% increase in user engagement.",
-                    technologies: ["Figma", "React", "Tailwind CSS", "Vercel"]
-                },
-                {
-                    id: 2,
-                    title: "SaaS Dashboard UI",
-                    category: "UI/UX Design",
-                    image: "https://placehold.co/600x400/C3DAFE/2A4365?text=Project+B",
-                    detailImage: "https://placehold.co/800x500/C3DAFE/2A4365?text=Project+B+Detail",
-                    description: "Designing a complex, data-rich dashboard for a B2B software-as-a-service product. The goal was to simplify complex data visualization and create an intuitive workflow for power users. I led the UI/UX design process from concept to final mockups.",
-                    technologies: ["Sketch", "Chart.js", "Vue.js", "Storybook"]
-                },
-                {
-                    id: 3,
-                    title: "Mobile E-commerce App",
-                    category: "Mobile Development",
-                    image: "https://placehold.co/600x400/A3BFFA/1A365D?text=Project+C",
-                    detailImage: "https://placehold.co/800x500/A3BFFA/1A365D?text=Project+C+Detail",
-                    description: "Building a native-like mobile shopping experience with a focus on performance and ease of use. The app features a streamlined checkout process, push notifications, and a personalized recommendation engine.",
-                    technologies: ["React Native", "Firebase", "Node.js", "Stripe API"]
+            <!-- Education Section -->
+            <section id="education" class="py-20 md:py-28 bg-white">
+                <div class="container mx-auto px-6">
+                    <div class="animated-item text-center">
+                        <h2 class="text-3xl font-bold inline-block section-title">Education</h2>
+                    </div>
+                    <div class="timeline max-w-3xl mx-auto mt-8">
+                        <div class="timeline-item animated-item">
+                            <div class="timeline-icon"><i data-lucide="graduation-cap"></i></div>
+                            <p class="text-sm text-gray-500">2016 - 2020</p>
+                            <h3 class="text-xl font-semibold text-gray-800">University of Technology</h3>
+                            <p class="text-gray-600 mt-1">Bachelor of Science in Computer Science</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Achievements Section -->
+            <section id="achievements" class="py-20 md:py-28">
+                <div class="container mx-auto px-6">
+                    <div class="animated-item text-center">
+                        <h2 class="text-3xl font-bold inline-block section-title">Achievements</h2>
+                        <p class="mt-2 text-gray-600 max-w-2xl mx-auto">A few of my proudest accomplishments.</p>
+                    </div>
+                    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <div class="bg-white p-6 rounded-lg shadow-md text-center animated-item">
+                            <i data-lucide="trophy" class="w-12 h-12 mx-auto text-blue-500 mb-4"></i>
+                            <h3 class="text-xl font-semibold text-gray-800">Hackathon Winner 2023</h3>
+                            <p class="text-gray-600 mt-2 text-sm">First place in the National Innovation Hackathon for developing a real-time data visualization tool.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+    
+            <!-- Contact Section -->
+            <section id="contact" class="py-20 md:py-32">
+                <div class="container mx-auto px-6 text-center">
+                    <div class="animated-item">
+                        <h2 class="text-3xl font-bold text-gray-800">Let's Build Something Great</h2>
+                        <p class="mt-3 text-gray-600 max-w-xl mx-auto">
+                            I'm currently available for freelance projects and open to discussing new opportunities. Feel free to reach out.
+                        </p>
+                        <a href="mailto:your.email@example.com" class="mt-8 inline-block bg-blue-500 text-white font-bold px-10 py-4 rounded-lg shadow-lg hover:bg-blue-600 transition-all transform hover:scale-105">
+                            <i data-lucide="mail" class="inline-block mr-2 -mt-1"></i>
+                            Say Hello
+                        </a>
+                    </div>
+                </div>
+            </section>
+    
+        </main>
+        
+        <!-- Project Modal -->
+        <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
+            <div id="modal-content" class="bg-white rounded-lg shadow-2xl w-full max-w-3xl max-h-full overflow-y-auto">
+                <!-- Modal content will be populated by JS -->
+            </div>
+        </div>
+    
+    
+        <footer class="bg-gray-800 text-white py-6">
+            <div class="container mx-auto px-6 text-center text-sm">
+                <p>&copy; 2025 [Your Name]. All Rights Reserved.</p>
+            </div>
+        </footer>
+    
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                lucide.createIcons();
+                
+                const projects = [
+                    {
+                        id: 1,
+                        title: "Corporate Website Redesign",
+                        image: "https://placehold.co/600x400/BEE3F8/2C5282?text=Project+A",
+                        detailImage: "https://placehold.co/800x500/BEE3F8/2C5282?text=Project+A+Detail",
+                        description: "A complete overhaul of a legacy website to improve user experience and modernize the brand. The project involved user research, wireframing, UI design, and front-end development, resulting in a 40% increase in user engagement.",
+                        technologies: ["Figma", "React", "Tailwind CSS", "Vercel"]
+                    }
+                ];
+    
+                const portfolioContainer = document.querySelector('#portfolio .grid');
+                if (portfolioContainer) {
+                    projects.forEach((project, index) => {
+                        const card = document.createElement('div');
+                        card.className = `bg-white rounded-lg shadow-lg overflow-hidden portfolio-card animated-item`;
+                        card.style.transitionDelay = `${index * 0.1}s`;
+                        card.innerHTML = `
+                            <img src="${project.image}" alt="${project.title}" class="w-full h-56 object-cover">
+                            <div class="p-6">
+                                <h3 class="text-xl font-semibold mb-2 text-gray-800">${project.title}</h3>
+                                <p class="text-gray-600 mb-4 text-sm">${project.description.substring(0, 100)}...</p>
+                                <button onclick="openModal(${project.id})" class="text-blue-500 hover:underline font-medium text-sm">View Details &rarr;</button>
+                            </div>
+                        `;
+                        portfolioContainer.appendChild(card);
+                    });
                 }
-            ];
-
-            const portfolioContainer = document.querySelector('#portfolio .grid');
-            if (portfolioContainer) {
-                projects.forEach((project, index) => {
-                    const card = document.createElement('div');
-                    card.className = `bg-white rounded-lg shadow-lg overflow-hidden portfolio-card animated-item`;
-                    card.style.transitionDelay = `${index * 0.1}s`;
-                    card.innerHTML = `
-                        <img src="${project.image}" alt="${project.title}" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold mb-2 text-gray-800">${project.title}</h3>
-                            <p class="text-gray-600 mb-4 text-sm">${project.description.substring(0, 100)}...</p>
-                            <button onclick="openModal(${project.id})" class="text-blue-500 hover:underline font-medium text-sm">View Details &rarr;</button>
+                
+                const modal = document.getElementById('modal');
+                const modalContent = document.getElementById('modal-content');
+    
+                window.openModal = function(projectId) {
+                    const project = projects.find(p => p.id === projectId);
+                    if (!project || !modal || !modalContent) return;
+                    
+                    modalContent.innerHTML = `
+                        <div class="p-6 md:p-8">
+                            <div class="flex justify-between items-start mb-4">
+                                <h2 class="text-2xl md:text-3xl font-bold text-gray-800">${project.title}</h2>
+                                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-800 p-2 -mr-2 -mt-2 text-2xl leading-none">&times;</button>
+                            </div>
+                            <img src="${project.detailImage}" alt="${project.title}" class="w-full rounded-lg mb-6">
+                            <h3 class="text-xl font-semibold mb-2">About the Project</h3>
+                            <p class="text-gray-700 leading-relaxed mb-6">${project.description}</p>
+                            <h3 class="text-xl font-semibold mb-3">Technologies Used</h3>
+                            <div class="flex flex-wrap gap-3">
+                                ${project.technologies.map(tech => `<span class="bg-blue-100 text-blue-800 text-sm font-medium px-4 py-2 rounded-full">${tech}</span>`).join('')}
+                            </div>
                         </div>
                     `;
-                    portfolioContainer.appendChild(card);
-                });
-            }
-            
-            const modal = document.getElementById('modal');
-            const modalContent = document.getElementById('modal-content');
-
-            window.openModal = function(projectId) {
-                const project = projects.find(p => p.id === projectId);
-                if (!project || !modal || !modalContent) return;
+                    modal.classList.remove('hidden');
+                    modal.classList.add('flex');
+                    document.body.style.overflow = 'hidden';
+                }
+    
+                window.closeModal = function() {
+                    if (!modal) return;
+                    modal.classList.add('hidden');
+                    modal.classList.remove('flex');
+                    document.body.style.overflow = 'auto';
+                }
                 
-                modalContent.innerHTML = `
-                    <div class="p-6 md:p-8">
-                        <div class="flex justify-between items-start mb-4">
-                            <h2 class="text-2xl md:text-3xl font-bold text-gray-800">${project.title}</h2>
-                            <button onclick="closeModal()" class="text-gray-500 hover:text-gray-800 p-2 -mr-2 -mt-2 text-2xl leading-none">&times;</button>
-                        </div>
-                        <img src="${project.detailImage}" alt="${project.title}" class="w-full rounded-lg mb-6">
-                        <h3 class="text-xl font-semibold mb-2">About the Project</h3>
-                        <p class="text-gray-700 leading-relaxed mb-6">${project.description}</p>
-                        <h3 class="text-xl font-semibold mb-3">Technologies Used</h3>
-                        <div class="flex flex-wrap gap-3">
-                            ${project.technologies.map(tech => `<span class="bg-blue-100 text-blue-800 text-sm font-medium px-4 py-2 rounded-full">${tech}</span>`).join('')}
-                        </div>
-                    </div>
-                `;
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                document.body.style.overflow = 'hidden';
-            }
-
-            window.closeModal = function() {
-                if (!modal) return;
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-                document.body.style.overflow = 'auto';
-            }
-            
-            if (modal) {
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) {
+                if (modal) {
+                    modal.addEventListener('click', (e) => {
+                        if (e.target === modal) {
+                            closeModal();
+                        }
+                    });
+                }
+                
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape') {
                         closeModal();
                     }
                 });
-            }
-            
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    closeModal();
-                }
-            });
-
-            const animatedItems = document.querySelectorAll('.animated-item');
-            const observer = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                    }
+    
+                const animatedItems = document.querySelectorAll('.animated-item');
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            entry.target.classList.add('is-visible');
+                        }
+                    });
+                }, {
+                    threshold: 0.1
                 });
-            }, {
-                threshold: 0.1
+                animatedItems.forEach(item => {
+                    observer.observe(item);
+                });
             });
-            animatedItems.forEach(item => {
-                observer.observe(item);
-            });
-        });
-    </script>
-</body>
-</html>
+        </script>
+    </body>
+    </html>
