@@ -89,15 +89,30 @@
     <header class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#home" class="text-xl font-bold text-gray-800">Ankur Vadlamani</a>
+            <!-- Desktop Navigation -->
             <nav class="hidden md:flex items-center space-x-6 text-sm">
                 <a href="#about" class="text-gray-600 hover:text-blue-500 transition-colors">About</a>
                 <a href="#portfolio" class="text-gray-600 hover:text-blue-500 transition-colors">Portfolio</a>
                 <a href="#experience" class="text-gray-600 hover:text-blue-500 transition-colors">Experience</a>
                 <a href="#education" class="text-gray-600 hover:text-blue-500 transition-colors">Education</a>
                 <a href="#achievements" class="text-gray-600 hover:text-blue-500 transition-colors">Achievements</a>
-                <a href="blogs.html" class="text-gray-600 hover:text-blue-500 transition-colors">Blog</a>
+                <a href="https://ankurvadlamani.github.io/blogs.html" class="text-gray-600 hover:text-blue-500 transition-colors">Blog</a>
                 <a href="#contact" class="text-gray-600 hover:text-blue-500 transition-colors">Contact</a>
             </nav>
+            <!-- Mobile Menu Button -->
+            <button id="mobile-menu-button" class="md:hidden">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+        </div>
+        <!-- Mobile Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
+            <a href="#about" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">About</a>
+            <a href="#portfolio" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Portfolio</a>
+            <a href="#experience" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Experience</a>
+            <a href="#education" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Education</a>
+            <a href="#achievements" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Achievements</a>
+            <a href="https://ankurvadlamani.github.io/blogs.html" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Blog</a>
+            <a href="#contact" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Contact</a>
         </div>
     </header>
 
@@ -105,15 +120,18 @@
 
         <!-- Hero Section -->
         <section id="home" class="relative min-h-screen flex items-center bg-white pt-16">
-            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://i.postimg.cc/hvc859yC/Whats-App-Image-2025-07-22-at-11-28-14-10fbced2.jpg');"></div>
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url(''https://i.postimg.cc/hvc859yC/Whats-App-Image-2025-07-22-at-11-28-14-10fbced2.jpg');"></div>
             <div class="absolute inset-0 bg-white opacity-80"></div>
             <div class="relative container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-3/5 animated-item">
-                    <h1 class="text-4xl md:text-6xl font-bold text-gray-800 leading-tight">
-                        Crafting Digital Experiences
+                    <h1 class="text-5xl md:text-7xl font-bold text-gray-800 leading-tight">
+                        Ankur Vadlamani
                     </h1>
-                    <p class="mt-4 text-lg text-gray-700 font-medium">
-                        Hi, I'm Ankur Vadlamani, a 4th year B-Tech student from Mahindra Uiversity dedicated to building beautiful, functional, and user-centered digital products.
+                    <p class="mt-2 text-lg md:text-xl text-blue-600 font-semibold">
+                        Hardware & Embedded Systems Enthusiast | Final Year B.Tech @ Mahindra University
+                    </p>
+                    <p class="mt-6 text-lg text-gray-600 max-w-xl">
+                        A passionate builder dedicated to crafting functional and user-centered digital and hardware products.
                     </p>
                     <div class="mt-8 flex flex-wrap gap-4">
                         <a href="#portfolio" class="inline-block bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition-all transform hover:scale-105">
@@ -131,7 +149,7 @@
                     </div>
                 </div>
                 <div class="md:w-2/5 animated-item" style="transition-delay: 0.3s;">
-                    <img src="https://i.postimg.cc/zfqg5JSB/Whats-App-Image-2025-07-22-at-11-51-12-4cca3e7f.jpg" alt="Your Name" class="rounded-full shadow-2xl mx-auto">
+                    <img src="https://i.postimg.cc/zfqg5JSB/Whats-App-Image-2025-07-22-at-11-51-12-4cca3e7f.jpg" alt="Ankur Vadlamani" class="rounded-full shadow-2xl mx-auto">
                 </div>
             </div>
         </section>
@@ -254,6 +272,23 @@
         <script>
             document.addEventListener('DOMContentLoaded', () => {
                 lucide.createIcons();
+
+                // --- Mobile Menu Logic ---
+                const mobileMenuButton = document.getElementById('mobile-menu-button');
+                const mobileMenu = document.getElementById('mobile-menu');
+
+                if (mobileMenuButton && mobileMenu) {
+                    mobileMenuButton.addEventListener('click', () => {
+                        mobileMenu.classList.toggle('hidden');
+                    });
+
+                    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
+                    mobileMenuLinks.forEach(link => {
+                        link.addEventListener('click', () => {
+                            mobileMenu.classList.add('hidden');
+                        });
+                    });
+                }
                 
                 const projects = [
                     {
