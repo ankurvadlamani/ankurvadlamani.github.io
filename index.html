@@ -81,6 +81,21 @@
         #modal {
             transition: opacity 0.3s ease;
         }
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #000;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -96,7 +111,7 @@
                 <a href="#experience" class="text-gray-600 hover:text-blue-500 transition-colors">Experience</a>
                 <a href="#education" class="text-gray-600 hover:text-blue-500 transition-colors">Education</a>
                 <a href="#achievements" class="text-gray-600 hover:text-blue-500 transition-colors">Achievements</a>
-                <a href="https://ankurvadlamani.github.io/blogs.html" class="text-gray-600 hover:text-blue-500 transition-colors">Blog</a>
+                <a href="blogs.html" class="text-gray-600 hover:text-blue-500 transition-colors">Blog</a>
                 <a href="#contact" class="text-gray-600 hover:text-blue-500 transition-colors">Contact</a>
             </nav>
             <!-- Mobile Menu Button -->
@@ -111,7 +126,7 @@
             <a href="#experience" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Experience</a>
             <a href="#education" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Education</a>
             <a href="#achievements" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Achievements</a>
-            <a href="https://ankurvadlamani.github.io/blogs.html" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Blog</a>
+            <a href="blogs.html" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Blog</a>
             <a href="#contact" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Contact</a>
         </div>
     </header>
@@ -120,7 +135,7 @@
 
         <!-- Hero Section -->
         <section id="home" class="relative min-h-screen flex items-center bg-white pt-16">
-            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url(''https://i.postimg.cc/hvc859yC/Whats-App-Image-2025-07-22-at-11-28-14-10fbced2.jpg');"></div>
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://i.postimg.cc/hvc859yC/Whats-App-Image-2025-07-22-at-11-28-14-10fbced2.jpg');"></div>
             <div class="absolute inset-0 bg-white opacity-80"></div>
             <div class="relative container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-3/5 animated-item">
@@ -131,7 +146,7 @@
                         Hardware & Embedded Systems Enthusiast | Final Year B.Tech @ Mahindra University
                     </p>
                     <p class="mt-6 text-lg text-gray-600 max-w-xl">
-                       Bridging Hardware and software, one signal at a time!
+                        Bridging Hardware and software, one signal at a time!
                     </p>
                     <div class="mt-8 flex flex-wrap gap-4">
                         <a href="#portfolio" class="inline-block bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition-all transform hover:scale-105">
@@ -144,7 +159,7 @@
                     <div class="mt-8 flex space-x-6">
                         <a href="https://www.linkedin.com/in/ankur-vadlamani" class="text-gray-600 hover:text-blue-500"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
                         <a href="https://github.com/ankurvadlamani" class="text-gray-600 hover:text-blue-500"><i data-lucide="github" class="w-6 h-6"></i></a>
-                        <a href="ankurvadlamani@gmail.com" class="text-gray-600 hover:text-blue-500"><i data-lucide="mail" class="w-6 h-6"></i></a>
+                        <a href="mailto:ankurvadlamani@gmail.com" class="text-gray-600 hover:text-blue-500"><i data-lucide="mail" class="w-6 h-6"></i></a>
                         <a href="https://www.youtube.com/@ankurvadlamani5116" class="text-gray-600 hover:text-blue-500"><i data-lucide="youtube" class="w-6 h-6"></i></a>
                     </div>
                 </div>
@@ -161,15 +176,15 @@
                     <div class="animated-item">
                         <h2 class="text-3xl font-bold section-title">About Me</h2>
                         <p class="text-gray-700 leading-relaxed mb-4">
-                           I'm a passionate hardware and embedded systems engineer with a love for creating real-world solutions that bridge the gap between software and physical devices. Currently in my final year of B.Tech at Mahindra University, I specialize in sensor integration, real-time signal processing, and low-level embedded development.
-
-My projects involve platforms like Arduino, Raspberry Pi Pico, and Jetson Nano, with deep experience in protocols like I2C, SPI, and UART. From building power system for AUV to working on a precision dispensing system with high accuracy, I thrive in hands-on, problem-solving environments.
-
-I enjoy building tools that not only work—but make a difference.
+                            I'm a passionate hardware and embedded systems engineer with a love for creating real-world solutions that bridge the gap between software and physical devices. Currently in my final year of B.Tech at Mahindra University, I specialize in sensor integration, real-time signal processing, and low-level embedded development.
+                        </p>
+                        <p class="text-gray-700 leading-relaxed">
+                            My projects involve platforms like Arduino, Raspberry Pi Pico, and Jetson Nano, with deep experience in protocols like I2C, SPI, and UART. From building power system for AUV to working on a precision dispensing system with high accuracy, I thrive in hands-on, problem-solving environments. I enjoy building tools that not only work—but make a difference.
                         </p>
                     </div>
                 </div>
-            </section>
+            </div>
+        </section>
     
             <!-- Portfolio Section -->
             <section id="portfolio" class="py-20 md:py-28 bg-white">
@@ -251,7 +266,7 @@ I enjoy building tools that not only work—but make a difference.
                         </div>
                         <div class="bg-white p-6 rounded-lg shadow-md text-center animated-item">
                             <i data-lucide="trophy" class="w-12 h-12 mx-auto text-blue-500 mb-4"></i>
-                            <h3 class="text-xl font-semibold text-gray-800">SAUVC2025 among Top 15 teams, Singapoer polytechnique, Singapore</h3>
+                            <h3 class="text-xl font-semibold text-gray-800">SAUVC2025 among Top 15 teams, Singapore polytechnique, Singapore</h3>
                             <p class="text-gray-600 mt-2 text-sm">Top 25 teams among a total of 600+ teams participated.</p>
                         </div>
                     </div>
@@ -317,16 +332,22 @@ I enjoy building tools that not only work—but make a difference.
                         title: "Autonomous Underwater Vehicle",
                         image: "https://placehold.co/600x400/BEE3F8/2C5282?text=Project+A",
                         detailImage: "https://placehold.co/800x500/BEE3F8/2C5282?text=Project+A+Detail",
-                        description: "A complete overhaul of a legacy website to improve user experience and modernize the brand. The project involved user research, wireframing, UI design, and front-end development, resulting in a 40% increase in user engagement.",
-                        technologies: ["Figma", "React", "Tailwind CSS", "Vercel"]
-                    }
-                                        {
+                        videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ", // Example YouTube embed URL
+                        description: "This project involved designing and building an AUV for underwater exploration tasks. I was responsible for the power distribution system and sensor integration.",
+                        projectGoal: "To create a fully autonomous vehicle capable of navigating a pre-defined course and performing specific tasks like object detection.",
+                        keyChallenges: "Ensuring all electronic components were properly waterproofed and managing power consumption for extended missions were the two biggest hurdles we overcame.",
+                        technologies: ["ROS", "Jetson Nano", "C++", "SolidWorks", "KiCad"]
+                    },
+                    {
                         id: 2,
                         title: "Precision dispensing system",
-                        image: "https://placehold.co/600x400/BEE3F8/2C5282?text=Project+A",
-                        detailImage: "https://placehold.co/800x500/BEE3F8/2C5282?text=Project+A+Detail",
-                        description: "A complete overhaul of a legacy website to improve user experience and modernize the brand. The project involved user research, wireframing, UI design, and front-end development, resulting in a 40% increase in user engagement.",
-                        technologies: ["Figma", "React", "Tailwind CSS", "Vercel"]
+                        image: "https://placehold.co/600x400/C3DAFE/2A4365?text=Project+B",
+                        detailImage: "https://placehold.co/800x500/C3DAFE/2A4365?text=Project+B+Detail",
+                        videoUrl: null, // No video for this one
+                        description: "Developed a high-precision system for dispensing micro-liters of fluid, controlled by a custom PCB and firmware.",
+                        projectGoal: "Achieve a dispensing accuracy of +/- 1 microliter with a responsive user interface for calibration and operation.",
+                        keyChallenges: "Calibrating the stepper motor for precise movements and designing a compact PCB to fit the small form factor.",
+                        technologies: ["Arduino", "C++", "Stepper Motors", "Altium Designer"]
                     }
                 ];
     
@@ -354,6 +375,17 @@ I enjoy building tools that not only work—but make a difference.
                 window.openModal = function(projectId) {
                     const project = projects.find(p => p.id === projectId);
                     if (!project || !modal || !modalContent) return;
+
+                    let mediaHtml = '';
+                    if (project.videoUrl) {
+                        mediaHtml = `
+                            <div class="video-container rounded-lg mb-6">
+                                <iframe src="${project.videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        `;
+                    } else {
+                        mediaHtml = `<img src="${project.detailImage}" alt="${project.title}" class="w-full rounded-lg mb-6">`;
+                    }
                     
                     modalContent.innerHTML = `
                         <div class="p-6 md:p-8">
@@ -361,9 +393,13 @@ I enjoy building tools that not only work—but make a difference.
                                 <h2 class="text-2xl md:text-3xl font-bold text-gray-800">${project.title}</h2>
                                 <button onclick="closeModal()" class="text-gray-500 hover:text-gray-800 p-2 -mr-2 -mt-2 text-2xl leading-none">&times;</button>
                             </div>
-                            <img src="${project.detailImage}" alt="${project.title}" class="w-full rounded-lg mb-6">
-                            <h3 class="text-xl font-semibold mb-2">About the Project</h3>
-                            <p class="text-gray-700 leading-relaxed mb-6">${project.description}</p>
+                            ${mediaHtml}
+                            <h3 class="text-xl font-semibold mb-2">Project Goal</h3>
+                            <p class="text-gray-700 leading-relaxed mb-6">${project.projectGoal}</p>
+                            
+                            <h3 class="text-xl font-semibold mb-2">Key Challenges</h3>
+                            <p class="text-gray-700 leading-relaxed mb-6">${project.keyChallenges}</p>
+
                             <h3 class="text-xl font-semibold mb-3">Technologies Used</h3>
                             <div class="flex flex-wrap gap-3">
                                 ${project.technologies.map(tech => `<span class="bg-blue-100 text-blue-800 text-sm font-medium px-4 py-2 rounded-full">${tech}</span>`).join('')}
