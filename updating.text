@@ -1,0 +1,12 @@
+Updating projects code block
+{
+                    id: xx,
+                    title: "Project Title",
+                    image: "https://placehold.co/600x400/A3BFFA/1A365D?text=Project+C",
+                    detailImage: "https://placehold.co/800x500/A3BFFA/1A365D?text=Project+C+Detail",
+                    videoUrl: null,
+                    description: "Description for your third project.",
+                    projectGoal: "Goal for your third project.",
+                    keyChallenges: "Challenges for your third project.",
+                    technologies: ["Tech 1", "Tech 2", "Tech 3"]
+                }
