@@ -85,41 +85,30 @@
             lucide.createIcons();
             
             const projects = [
-                {
-                    id: 1,
-                    title: "Autonomous Underwater Vehicle",
-                    image: "https://placehold.co/600x400/BEE3F8/2C5282?text=Project+A",
-                    detailImage: "https://placehold.co/800x500/BEE3F8/2C5282?text=Project+A+Detail",
-                    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-                    description: "This project involved designing and building an AUV for underwater exploration tasks. I was responsible for the power distribution system and sensor integration.",
-                    projectGoal: "To create a fully autonomous vehicle capable of navigating a pre-defined course and performing specific tasks like object detection.",
-                    keyChallenges: "Ensuring all electronic components were properly waterproofed and managing power consumption for extended missions were the two biggest hurdles we overcame.",
-                    technologies: ["ROS", "Jetson Nano", "C++", "SolidWorks", "KiCad"]
-                },
-                {
-                    id: 2,
-                    title: "Precision dispensing system",
-                    image: "https://placehold.co/600x400/C3DAFE/2A4365?text=Project+B",
-                    detailImage: "https://placehold.co/800x500/C3DAFE/2A4365?text=Project+B+Detail",
-                    videoUrl: null,
-                    description: "Developed a high-precision system for dispensing micro-liters of fluid, controlled by a custom PCB and firmware.",
-                    projectGoal: "Achieve a dispensing accuracy of +/- 1 microliter with a responsive user interface for calibration and operation.",
-                    keyChallenges: "Calibrating the stepper motor for precise movements and designing a compact PCB to fit the small form factor.",
-                    technologies: ["Arduino", "C++", "Stepper Motors", "Altium Designer"]
-                },
-                // Add more of your projects here following the same format
-                {
-                    id: 3,
-                    title: "Third Project Title",
-                    image: "https://placehold.co/600x400/A3BFFA/1A365D?text=Project+C",
-                    detailImage: "https://placehold.co/800x500/A3BFFA/1A365D?text=Project+C+Detail",
-                    videoUrl: null,
-                    description: "Description for your third project.",
-                    projectGoal: "Goal for your third project.",
-                    keyChallenges: "Challenges for your third project.",
-                    technologies: ["Tech 1", "Tech 2", "Tech 3"]
-                }
-            ];
+                    {
+                        id: 1,
+                        title: "Autonomous Underwater Vehicle",
+                        image: "https://i.postimg.cc/Y2ZXZ8r4/auv-cover.jpg",
+                        detailImage: "https://i.postimg.cc/W3y2g1fM/AUV-Detail.jpg",
+                        videoUrl: "https://www.youtube.com/embed/_i2n2dTLuUw", 
+                        description: "This project involved designing and building an AUV for underwater exploration tasks. I was responsible for the power distribution system and sensor integration.",
+                        projectGoal: "To create a fully autonomous vehicle capable of navigating a pre-defined course and performing specific tasks like object detection.",
+                        keyChallenges: "Ensuring all electronic components were designed properly with respect to the size constraints, waterproofed and managing power consumption for extended missions were the few biggest hurdles we overcame.",
+                        technologies: ["KiCad", "Jetson Nano", "Micro Python", "Fusion 360" ]
+                    },
+                    {
+                        id: 2,
+                        title: "Precision dispensing system",
+                        image: "https://i.postimg.cc/68FGPqGY/Dispenser-Detail.jpg",
+                        detailImage: "https://i.postimg.cc/68FGPqGY/Dispenser-Detail.jpg",
+                        videoUrl: "https://www.youtube.com/embed/lHVSn8xIPrY",
+                        description: "Developed a high-precision system for dispensing micro-liters of fluid, controlled by a custom circuit and firmware.",
+                        projectGoal: "Achieve a dispensing accuracy of +/- 1 microliter with a responsive user interface for calibration and operation.",
+                        keyChallenges: "Calibrating the stepper motor for precise movements and designing the system to fit the form factor.",
+                        technologies: ["Pico W", "Micro Python", "Stepper Motors", "Easy-EDA"]
+                    }
+                ];
+
 
             const portfolioContainer = document.querySelector('.grid');
             if (portfolioContainer) {
