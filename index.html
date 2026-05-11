@@ -198,8 +198,8 @@
                         <h2 class="text-3xl font-bold inline-block section-title">My Portfolio</h2>
                         <p class="mt-2 text-gray-600 max-w-3xl mx-auto">A selection of projects that I'm proud to have worked on.</p>
                     </div>
-                    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                        <!-- Project Cards will be populated by JS -->
+                    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
+    <!-- Project Cards will be populated by JS -->
                     </div>
                     <div class="mt-16 text-center animated-item">
                         <a href="portfolio.html" class="inline-block bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition-all transform hover:scale-105">
@@ -373,25 +373,58 @@
                     }
                 ];
     
-                const portfolioContainer = document.querySelector('#portfolio .grid');
-                if (portfolioContainer) {
-                    // Display only the first 2 projects on the home page
-                    const featuredProjects = projects.slice(0, 3);
-                    featuredProjects.forEach((project, index) => {
-                        const card = document.createElement('div');
-                        card.className = `bg-white rounded-lg shadow-lg overflow-hidden portfolio-card animated-item`;
-                        card.style.transitionDelay = `${index * 0.1}s`;
-                        card.innerHTML = `
-                            <img src="${project.image}" alt="${project.title}" class="w-full h-56 object-cover">
-                            <div class="p-6">
-                                <h3 class="text-xl font-semibold mb-2 text-gray-800">${project.title}</h3>
-                                <p class="text-gray-600 mb-4 text-sm">${project.description.substring(0, 100)}...</p>
-                                <button onclick="openModal(${project.id})" class="text-blue-500 hover:underline font-medium text-sm">View Details &rarr;</button>
-                            </div>
-                        `;
-                        portfolioContainer.appendChild(card);
-                    });
-                }
+const portfolioContainer = document.querySelector('#portfolio .grid');
+
+if (portfolioContainer) {
+
+    // Display top 3 projects on the home page
+    const featuredProjects = projects.slice(0, 3);
+
+    featuredProjects.forEach((project, index) => {
+
+        const card = document.createElement('div');
+
+        card.className = `
+            bg-white 
+            rounded-lg 
+            shadow-lg 
+            overflow-hidden 
+            portfolio-card 
+            animated-item
+        `;
+
+        card.style.transitionDelay = `${index * 0.1}s`;
+
+        card.innerHTML = `
+            <img 
+                src="${project.image}" 
+                alt="${project.title}" 
+                class="w-full h-48 object-cover"
+            >
+
+            <div class="p-6">
+
+                <h3 class="text-xl font-semibold mb-2 text-gray-800">
+                    ${project.title}
+                </h3>
+
+                <p class="text-gray-600 mb-4 text-sm">
+                    ${project.description.substring(0, 100)}...
+                </p>
+
+                <button 
+                    onclick="openModal(${project.id})" 
+                    class="text-blue-500 hover:underline font-medium text-sm"
+                >
+                    View Details &rarr;
+                </button>
+
+            </div>
+        `;
+
+        portfolioContainer.appendChild(card);
+    });
+}
                 
                 const modal = document.getElementById('modal');
                 const modalContent = document.getElementById('modal-content');
