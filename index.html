@@ -6,6 +6,7 @@
     <title>Ankur Vadlamani - Professional Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <!-- Required for the icons to render -->
     <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +14,7 @@
     
     <style>
         body { font-family: 'Poppins', sans-serif; background-color: #f7fafc; color: #2d3748; }
-        .animated-item { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .animated-item { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1); }
         .animated-item.is-visible { opacity: 1; transform: translateY(0); }
         .section-title { position: relative; padding-bottom: 0.5rem; margin-bottom: 2rem; }
         .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background-color: #4299e1; }
@@ -29,7 +30,6 @@
 </head>
 <body class="antialiased">
 
-    <!-- Header -->
     <header class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#home" class="text-xl font-bold text-gray-800">Ankur Vadlamani</a>
@@ -38,86 +38,81 @@
                 <a href="#portfolio" class="text-gray-600 hover:text-blue-500">Portfolio</a>
                 <a href="#experience" class="text-gray-600 hover:text-blue-500">Experience</a>
                 <a href="#education" class="text-gray-600 hover:text-blue-500">Education</a>
-                <a href="#achievements" class="text-gray-600 hover:text-blue-500">Achievements</a>
                 <a href="#contact" class="text-gray-600 hover:text-blue-500">Contact</a>
             </nav>
             <button id="mobile-menu-button" class="md:hidden"><i data-lucide="menu"></i></button>
         </div>
-        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-            <a href="#about" class="block py-3 px-6 text-sm">About</a>
-            <a href="#portfolio" class="block py-3 px-6 text-sm">Portfolio</a>
-            <a href="#contact" class="block py-3 px-6 text-sm">Contact</a>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200 p-4">
+            <a href="#about" class="block py-2 text-gray-700">About</a>
+            <a href="#portfolio" class="block py-2 text-gray-700">Portfolio</a>
+            <a href="#contact" class="block py-2 text-gray-700">Contact</a>
         </div>
     </header>
 
     <main>
-        <!-- Hero Section -->
         <section id="home" class="relative min-h-screen flex items-center bg-white pt-16">
-            <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('https://i.postimg.cc/hvc859yC/Whats-App-Image-2025-07-22-at-11-28-14-10fbced2.jpg');"></div>
+            <div class="absolute inset-0 bg-cover bg-center opacity-10" style="background-image: url('https://i.postimg.cc/hvc859yC/Whats-App-Image-2025-07-22-at-11-28-14-10fbced2.jpg');"></div>
             <div class="relative container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-3/5 animated-item">
                     <h1 class="text-5xl md:text-7xl font-bold text-gray-800 leading-tight">Ankur Vadlamani</h1>
-                    <p class="mt-2 text-lg text-blue-600 font-semibold">Hardware & Embedded Systems Enthusiast | Final Year B.Tech</p>
+                    <p class="mt-2 text-lg text-blue-600 font-semibold">Hardware & Embedded Systems Enthusiast</p>
+                    <p class="mt-4 text-gray-600">Integrating hardware and software, one jumper at a time!</p>
                     <div class="mt-8 flex flex-wrap gap-4">
                         <a href="#portfolio" class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition-all">View My Work</a>
-                        <a href="mailto:ankurvadlamani@gmail.com" class="border border-blue-500 text-blue-500 px-6 py-3 rounded-lg hover:bg-blue-50 transition-all">Contact Me</a>
+                        <a href="mailto:ankurvadlamani@gmail.com" class="border border-blue-500 text-blue-500 px-6 py-3 rounded-lg hover:bg-blue-50 transition-all">Say Hello</a>
                     </div>
                 </div>
                 <div class="md:w-2/5 animated-item">
-                    <img src="https://i.postimg.cc/zfqg5JSB/Whats-App-Image-2025-07-22-at-11-51-12-4cca3e7f.jpg" alt="Ankur" class="rounded-full shadow-2xl w-64 h-64 object-cover mx-auto">
+                    <img src="https://i.postimg.cc/zfqg5JSB/Whats-App-Image-2025-07-22-at-11-51-12-4cca3e7f.jpg" alt="Ankur Vadlamani" class="rounded-full shadow-2xl w-64 h-64 object-cover mx-auto">
                 </div>
             </div>
         </section>
 
-        <!-- About -->
-        <section id="about" class="py-20 bg-gray-50">
-            <div class="container mx-auto px-6 max-w-4xl">
-                <h2 class="text-3xl font-bold section-title">About Me</h2>
-                <p class="text-gray-700 leading-relaxed mb-4">Final year B-Tech student specializing in sensor integration and real-time systems. Currently pursuing an exchange program at Ecole Centrale, Lille.</p>
-            </div>
-        </section>
-
-        <!-- Portfolio -->
-        <section id="portfolio" class="py-20 bg-white">
+        <section id="portfolio" class="py-20 bg-gray-50">
             <div class="container mx-auto px-6">
-                <h2 class="text-3xl font-bold section-title text-center mx-auto w-fit">My Projects</h2>
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12"></div>
+                <h2 class="text-3xl font-bold section-title text-center mx-auto w-fit">My Portfolio</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12">
+                    <!-- JavaScript will inject cards here -->
+                </div>
             </div>
         </section>
 
-        <!-- Experience -->
-        <section id="experience" class="py-20 bg-gray-50">
+        <section id="experience" class="py-20">
             <div class="container mx-auto px-6 max-w-3xl">
                 <h2 class="text-3xl font-bold section-title">Work Experience</h2>
                 <div class="timeline">
                     <div class="timeline-item animated-item">
                         <div class="timeline-icon"><i data-lucide="briefcase"></i></div>
-                        <p class="text-sm text-gray-500">2025</p>
+                        <p class="text-sm text-gray-500">Jun 2025 - Aug 2025</p>
                         <h3 class="text-xl font-semibold">Engineering Intern, QUBEATS</h3>
-                        <p class="text-gray-600">Sensor integration and PCB prototyping.</p>
+                        <p class="text-gray-600">Worked with various sensors and PCB designs for initial product prototypes.</p>
                     </div>
                 </div>
             </div>
         </section>
     </main>
 
-    <!-- Modal -->
-    <div id="modal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4">
-        <div id="modal-content" class="bg-white rounded-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto p-6"></div>
+    <div id="modal" class="fixed inset-0 bg-black/60 z-[100] hidden items-center justify-center p-4">
+        <div id="modal-content" class="bg-white rounded-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto">
+            <!-- JavaScript will inject modal details here -->
+        </div>
     </div>
 
-    <footer class="bg-gray-800 text-white py-6 text-center">
-        <p>&copy; 2026 Ankur Vadlamani</p>
+    <footer class="bg-gray-800 text-white py-8 text-center">
+        <p>&copy; 2026 Ankur Vadlamani. All Rights Reserved.</p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            // Initialize Lucide icons
             lucide.createIcons();
 
             // Mobile Menu
-            const btn = document.getElementById('mobile-menu-button');
+            const menuBtn = document.getElementById('mobile-menu-button');
             const menu = document.getElementById('mobile-menu');
-            btn.onclick = () => menu.classList.toggle('hidden');
+            if(menuBtn) {
+                menuBtn.onclick = () => menu.classList.toggle('hidden');
+            }
 
             const projects = [
                 {
@@ -125,43 +120,43 @@
                     title: "Autonomous Underwater Vehicle",
                     image: "https://i.postimg.cc/Y2ZXZ8r4/auv-cover.jpg",
                     videoUrl: "https://www.youtube.com/embed/_i2n2dTLuUw",
-                    description: "Designing and building an AUV for underwater exploration. Managed power systems and sensor logic.",
-                    projectGoal: "Create a fully autonomous vehicle for object detection tasks.",
-                    keyChallenges: "Waterproofing and high-density power management.",
-                    technologies: ["KiCad", "Jetson Nano", "MicroPython", "Fusion 360"]
+                    description: "Designing and building an AUV for underwater exploration tasks. Responsible for power distribution and sensor logic.",
+                    goal: "To create a fully autonomous vehicle capable of navigating a pre-defined course.",
+                    tech: ["KiCad", "Jetson Nano", "MicroPython", "Fusion 360"]
                 },
                 {
                     id: 2,
                     title: "Precision Dispensing System",
                     image: "https://i.postimg.cc/68FGPqGY/Dispenser-Detail.jpg",
                     videoUrl: "https://www.youtube.com/embed/lHVSn8xIPrY",
-                    description: "High-precision microliter fluid dispensing system controlled via custom firmware.",
-                    projectGoal: "Achieve accuracy of +/- 1 microliter.",
-                    keyChallenges: "Stepper motor calibration for micro-movements.",
-                    technologies: ["Pico W", "MicroPython", "Easy-EDA"]
+                    description: "High-precision microliter fluid dispensing system controlled by a custom circuit.",
+                    goal: "Achieve dispensing accuracy of +/- 1 microliter.",
+                    tech: ["Pico W", "MicroPython", "Stepper Motors", "Easy-EDA"]
                 },
                 {
                     id: 3,
-                    title: "ESP based PLC",
+                    title: "ESP Based PLC",
                     image: "https://i.postimg.cc/FRFPrDpN/plc.png",
-                    description: "Cost-effective industrial PLC prototype with web interface monitoring.",
-                    projectGoal: "Industrial-grade control at a fraction of the cost.",
-                    keyChallenges: "Galvanic isolation and system robustness.",
-                    technologies: ["ESP32", "Optocouplers", "CAN", "Arduino IDE"]
+                    videoUrl: "",
+                    description: "A PLC architecture using ESP32 with a responsive web interface for industrial monitoring.",
+                    goal: "Engineer a cost-effective prototype emulating industrial PLC functionality.",
+                    tech: ["ESP32", "Optocouplers", "CAN", "Arduino IDE"]
                 }
             ];
 
             const grid = document.querySelector('#portfolio .grid');
-            projects.forEach(p => {
+            projects.forEach((p, index) => {
                 const card = document.createElement('div');
                 card.className = "bg-white rounded-lg shadow-lg overflow-hidden portfolio-card animated-item";
+                card.style.transitionDelay = `${index * 0.1}s`;
                 card.innerHTML = `
                     <img src="${p.image}" class="w-full h-48 object-cover">
                     <div class="p-6">
-                        <h3 class="font-bold text-xl mb-2">${p.title}</h3>
-                        <p class="text-sm text-gray-600 mb-4">${p.description}</p>
-                        <button onclick="openModal(${p.id})" class="text-blue-500 font-semibold">View Details &rarr;</button>
-                    </div>`;
+                        <h3 class="text-xl font-bold mb-2">${p.title}</h3>
+                        <p class="text-gray-600 text-sm mb-4">${p.description}</p>
+                        <button onclick="openModal(${p.id})" class="text-blue-500 font-semibold hover:underline">View Details &rarr;</button>
+                    </div>
+                `;
                 grid.appendChild(card);
             });
 
@@ -171,14 +166,19 @@
                 const content = document.getElementById('modal-content');
                 
                 content.innerHTML = `
-                    <div class="flex justify-between items-center mb-4">
-                        <h2 class="text-2xl font-bold">${p.title}</h2>
-                        <button onclick="closeModal()" class="text-3xl">&times;</button>
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-6">
+                            <h2 class="text-2xl font-bold">${p.title}</h2>
+                            <button onclick="closeModal()" class="text-3xl text-gray-400 hover:text-black">&times;</button>
+                        </div>
+                        ${p.videoUrl ? `<div class="video-container rounded-lg mb-6"><iframe src="${p.videoUrl}" frameborder="0" allowfullscreen></iframe></div>` : `<img src="${p.image}" class="w-full rounded-lg mb-6">`}
+                        <div class="space-y-4">
+                            <div><h4 class="font-bold text-gray-800">Project Goal</h4><p class="text-gray-600">${p.goal}</p></div>
+                            <div><h4 class="font-bold text-gray-800">Technologies</h4>
+                                <div class="flex flex-wrap gap-2 mt-2">${p.tech.map(t => `<span class="bg-blue-100 text-blue-700 text-xs px-3 py-1 rounded-full">${t}</span>`).join('')}</div>
+                            </div>
+                        </div>
                     </div>
-                    ${p.videoUrl ? `<div class="video-container mb-4"><iframe src="${p.videoUrl}" frameborder="0" allowfullscreen></iframe></div>` : `<img src="${p.image}" class="rounded mb-4">`}
-                    <h4 class="font-bold">Goal</h4><p class="mb-4">${p.projectGoal}</p>
-                    <h4 class="font-bold">Technologies</h4>
-                    <div class="flex flex-wrap gap-2">${p.technologies.map(t => `<span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">${t}</span>`).join('')}</div>
                 `;
                 modal.classList.replace('hidden', 'flex');
                 document.body.style.overflow = 'hidden';
@@ -191,7 +191,9 @@
 
             // Animations
             const observer = new IntersectionObserver(entries => {
-                entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('is-visible') });
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) entry.target.classList.add('is-visible');
+                });
             }, { threshold: 0.1 });
             document.querySelectorAll('.animated-item').forEach(el => observer.observe(el));
         });
