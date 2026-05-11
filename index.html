@@ -6,97 +6,25 @@
     <title>Ankur Vadlamani - Professional Portfolio</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <script src="https://unpkg.com/lucide@latest"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     
     <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f7fafc;
-            color: #2d3748;
-        }
-        .animated-item {
-            opacity: 0;
-            transform: translateY(40px);
-            transition: opacity 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
-            transition-delay: 0.1s;
-        }
-        .animated-item.is-visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-        .section-title {
-            position: relative;
-            padding-bottom: 0.5rem;
-            margin-bottom: 2rem;
-        }
-        .section-title::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background-color: #4299e1;
-        }
-        .portfolio-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .portfolio-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        .timeline {
-            position: relative;
-            padding: 1rem 0;
-        }
-        .timeline::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 18px;
-            height: 100%;
-            width: 4px;
-            background: #e2e8f0;
-        }
-        .timeline-item {
-            position: relative;
-            padding-left: 4rem;
-            margin-bottom: 2rem;
-        }
-        .timeline-icon {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: #4299e1;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border: 4px solid #f7fafc;
-        }
-        #modal {
-            transition: opacity 0.3s ease;
-        }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 aspect ratio */
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-            background: #000;
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
+        body { font-family: 'Poppins', sans-serif; background-color: #f7fafc; color: #2d3748; }
+        .animated-item { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+        .animated-item.is-visible { opacity: 1; transform: translateY(0); }
+        .section-title { position: relative; padding-bottom: 0.5rem; margin-bottom: 2rem; }
+        .section-title::after { content: ''; position: absolute; bottom: 0; left: 0; width: 50px; height: 3px; background-color: #4299e1; }
+        .portfolio-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+        .portfolio-card:hover { transform: translateY(-10px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); }
+        .timeline { position: relative; padding: 1rem 0; }
+        .timeline::before { content: ''; position: absolute; top: 0; left: 18px; height: 100%; width: 4px; background: #e2e8f0; }
+        .timeline-item { position: relative; padding-left: 4rem; margin-bottom: 2rem; }
+        .timeline-icon { position: absolute; left: 0; top: 0; width: 40px; height: 40px; border-radius: 50%; background: #4299e1; color: white; display: flex; align-items: center; justify-content: center; border: 4px solid #f7fafc; }
+        .video-container { position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden; background: #000; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
     </style>
 </head>
 <body class="antialiased">
@@ -105,438 +33,168 @@
     <header class="bg-white/80 backdrop-blur-md fixed top-0 left-0 right-0 z-50 shadow-sm">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
             <a href="#home" class="text-xl font-bold text-gray-800">Ankur Vadlamani</a>
-            <!-- Desktop Navigation -->
             <nav class="hidden md:flex items-center space-x-6 text-sm">
-                <a href="#about" class="text-gray-600 hover:text-blue-500 transition-colors">About</a>
-                <a href="#portfolio" class="text-gray-600 hover:text-blue-500 transition-colors">Portfolio</a>
-                <a href="#experience" class="text-gray-600 hover:text-blue-500 transition-colors">Experience</a>
-                <a href="#education" class="text-gray-600 hover:text-blue-500 transition-colors">Education</a>
-                <a href="#achievements" class="text-gray-600 hover:text-blue-500 transition-colors">Achievements</a>
-                <a href="blogs.html" class="text-gray-600 hover:text-blue-500 transition-colors">Blog</a>
-                <a href="#contact" class="text-gray-600 hover:text-blue-500 transition-colors">Contact</a>
+                <a href="#about" class="text-gray-600 hover:text-blue-500">About</a>
+                <a href="#portfolio" class="text-gray-600 hover:text-blue-500">Portfolio</a>
+                <a href="#experience" class="text-gray-600 hover:text-blue-500">Experience</a>
+                <a href="#education" class="text-gray-600 hover:text-blue-500">Education</a>
+                <a href="#achievements" class="text-gray-600 hover:text-blue-500">Achievements</a>
+                <a href="#contact" class="text-gray-600 hover:text-blue-500">Contact</a>
             </nav>
-            <!-- Mobile Menu Button -->
-            <button id="mobile-menu-button" class="md:hidden">
-                <i data-lucide="menu" class="w-6 h-6"></i>
-            </button>
+            <button id="mobile-menu-button" class="md:hidden"><i data-lucide="menu"></i></button>
         </div>
-        <!-- Mobile Menu -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-200">
-            <a href="#about" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">About</a>
-            <a href="#portfolio" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Portfolio</a>
-            <a href="#experience" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Experience</a>
-            <a href="#education" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Education</a>
-            <a href="#achievements" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Achievements</a>
-            <a href="blogs.html" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Blog</a>
-            <a href="#contact" class="block py-3 px-6 text-sm text-gray-700 hover:bg-gray-50">Contact</a>
+            <a href="#about" class="block py-3 px-6 text-sm">About</a>
+            <a href="#portfolio" class="block py-3 px-6 text-sm">Portfolio</a>
+            <a href="#contact" class="block py-3 px-6 text-sm">Contact</a>
         </div>
     </header>
 
     <main>
-
         <!-- Hero Section -->
         <section id="home" class="relative min-h-screen flex items-center bg-white pt-16">
-            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://i.postimg.cc/hvc859yC/Whats-App-Image-2025-07-22-at-11-28-14-10fbced2.jpg');"></div>
-            <div class="absolute inset-0 bg-white opacity-80"></div>
+            <div class="absolute inset-0 bg-cover bg-center opacity-20" style="background-image: url('https://i.postimg.cc/hvc859yC/Whats-App-Image-2025-07-22-at-11-28-14-10fbced2.jpg');"></div>
             <div class="relative container mx-auto px-6 flex flex-col md:flex-row items-center gap-12">
                 <div class="md:w-3/5 animated-item">
-                    <h1 class="text-5xl md:text-7xl font-bold text-gray-800 leading-tight">
-                        Ankur Vadlamani
-                    </h1>
-                    <p class="mt-2 text-lg md:text-xl text-blue-600 font-semibold">
-                        Hardware & Embedded Systems Enthusiast | Final Year B.Tech @ Mahindra University
-                    </p>
-                    <p class="mt-6 text-lg text-gray-600 max-w-xl">
-                        Integrating hardware and software, one jumper at a time!
-                    </p>
+                    <h1 class="text-5xl md:text-7xl font-bold text-gray-800 leading-tight">Ankur Vadlamani</h1>
+                    <p class="mt-2 text-lg text-blue-600 font-semibold">Hardware & Embedded Systems Enthusiast | Final Year B.Tech</p>
                     <div class="mt-8 flex flex-wrap gap-4">
-                        <a href="#portfolio" class="inline-block bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition-all transform hover:scale-105">
-                            View My Work
-                        </a>
-                        <a href="https://raw.githubusercontent.com/ankurvadlamani/ankurvadlamani.github.io/main/ankurvadlamani_resume.pdf" 
-                        download="Ankur_Vadlamani_Resume.pdf" 
-                       class="inline-block bg-white text-blue-500 font-semibold px-6 py-3 rounded-lg shadow-lg border border-blue-500 hover:bg-blue-50 transition-all transform hover:scale-105">
-                        Download Resume
-                        </a>
-                        <a href="blogs.html" class="inline-block bg-gray-800 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-gray-700 transition-all transform hover:scale-105">
-                            Visit My Blog
-                        </a>
+                        <a href="#portfolio" class="bg-blue-500 text-white px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition-all">View My Work</a>
+                        <a href="mailto:ankurvadlamani@gmail.com" class="border border-blue-500 text-blue-500 px-6 py-3 rounded-lg hover:bg-blue-50 transition-all">Contact Me</a>
                     </div>
-                    <div class="mt-8 flex items-center space-x-6">
-
-    <!-- LinkedIn -->
-    <a href="https://www.linkedin.com/in/ankur-vadlamani"
-       target="_blank"
-       class="text-gray-700 hover:text-blue-600 transition-colors text-3xl">
-        <i class="fab fa-linkedin"></i>
-    </a>
-
-    <!-- GitHub -->
-    <a href="https://github.com/ankurvadlamani"
-       target="_blank"
-       class="text-gray-700 hover:text-black transition-colors text-3xl">
-        <i class="fab fa-github"></i>
-    </a>
-
-    <!-- Mail -->
-    <a href="mailto:ankurvadlamani@gmail.com"
-       class="text-gray-700 hover:text-red-500 transition-colors text-3xl">
-        <i class="fas fa-envelope"></i>
-    </a>
-
-    <!-- YouTube -->
-    <a href="https://www.youtube.com/@ankurvadlamani5116"
-       target="_blank"
-       class="text-gray-700 hover:text-red-600 transition-colors text-3xl">
-        <i class="fab fa-youtube"></i>
-    </a>
-
-</div>
                 </div>
-                <div class="md:w-2/5 animated-item" style="transition-delay: 0.3s;">
-                    <img src="https://i.postimg.cc/zfqg5JSB/Whats-App-Image-2025-07-22-at-11-51-12-4cca3e7f.jpg" alt="Ankur Vadlamani" class="rounded-full shadow-2xl mx-auto">
+                <div class="md:w-2/5 animated-item">
+                    <img src="https://i.postimg.cc/zfqg5JSB/Whats-App-Image-2025-07-22-at-11-51-12-4cca3e7f.jpg" alt="Ankur" class="rounded-full shadow-2xl w-64 h-64 object-cover mx-auto">
                 </div>
             </div>
         </section>
 
-        <!-- About Me Section -->
-        <section id="about" class="py-20 md:py-28">
+        <!-- About -->
+        <section id="about" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6 max-w-4xl">
+                <h2 class="text-3xl font-bold section-title">About Me</h2>
+                <p class="text-gray-700 leading-relaxed mb-4">Final year B.Tech student specializing in sensor integration and real-time systems. Currently pursuing an exchange program at Ecole Centrale, Lille.</p>
+            </div>
+        </section>
+
+        <!-- Portfolio -->
+        <section id="portfolio" class="py-20 bg-white">
             <div class="container mx-auto px-6">
-                <div class="max-w-4xl mx-auto">
-                    <div class="animated-item">
-                        <h2 class="text-3xl font-bold section-title">About Me</h2>
-                        <p class="text-gray-700 leading-relaxed mb-4">
-                            I'm a passionate hardware and embedded systems engineer with a love for creating real-world solutions that bridge the gap between software and physical devices. Currently in my final year of B.Tech at Mahindra University, I specialize in sensor integration, real-time signal processing, and low-level embedded development.
-                        </p>
-                        <p class="text-gray-700 leading-relaxed">
-                            My projects involve platforms like Arduino, Raspberry Pi Pico, and Jetson Nano, with deep experience in protocols like I2C, SPI, and UART. From building power system for AUV to working on a precision dispensing system with high accuracy, I thrive in hands-on, problem-solving environments. I enjoy building tools that not only work—but make a difference.
-                        </p>
+                <h2 class="text-3xl font-bold section-title text-center mx-auto w-fit">My Projects</h2>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mt-12"></div>
+            </div>
+        </section>
+
+        <!-- Experience -->
+        <section id="experience" class="py-20 bg-gray-50">
+            <div class="container mx-auto px-6 max-w-3xl">
+                <h2 class="text-3xl font-bold section-title">Work Experience</h2>
+                <div class="timeline">
+                    <div class="timeline-item animated-item">
+                        <div class="timeline-icon"><i data-lucide="briefcase"></i></div>
+                        <p class="text-sm text-gray-500">2025</p>
+                        <h3 class="text-xl font-semibold">Engineering Intern, QUBEATS</h3>
+                        <p class="text-gray-600">Sensor integration and PCB prototyping.</p>
                     </div>
                 </div>
             </div>
         </section>
-    
-            <!-- Portfolio Section -->
-            <section id="portfolio" class="py-20 md:py-28 bg-white">
-                <div class="container mx-auto px-6">
-                    <div class="animated-item text-center">
-                        <h2 class="text-3xl font-bold inline-block section-title">My Portfolio</h2>
-                        <p class="mt-2 text-gray-600 max-w-3xl mx-auto">A selection of projects that I'm proud to have worked on.</p>
-                    </div>
-                    <div class="mt-16 grid grid-cols-1 md:grid-cols-3 lg:grid-cols-3 gap-8">
-    <!-- Project Cards will be populated by JS -->
-                    </div>
-                    <div class="mt-16 text-center animated-item">
-                        <a href="portfolio.html" class="inline-block bg-blue-500 text-white font-semibold px-6 py-3 rounded-lg shadow-lg hover:bg-blue-600 transition-all transform hover:scale-105">
-                            View More Projects
-                        </a>
-                    </div>
-                </div>
-            </section>
-    
-            <!-- Experience Section -->
-            <section id="experience" class="py-20 md:py-28">
-                <div class="container mx-auto px-6">
-                    <div class="animated-item text-center">
-                        <h2 class="text-3xl font-bold inline-block section-title">Work Experience</h2>
-                    </div>
-                    <div class="timeline max-w-3xl mx-auto mt-8">
-                        <div class="timeline-item animated-item">
-                            <div class="timeline-icon"><i data-lucide="briefcase"></i></div>
-                            <p class="text-sm text-gray-500">Jun 2025 - Aug 2025</p>
-                            <h3 class="text-xl font-semibold text-gray-800">Engineering Intern, QUBEATS</h3>
-                            <p class="text-gray-600 mt-1">Worked with various sensors and came up with few pcb designs for initial prototype of a product.</p>
-                        </div>
-                        <div class="timeline-item animated-item">
-                            <div class="timeline-icon"><i data-lucide="briefcase"></i></div>
-                            <p class="text-sm text-gray-500">Jul 2024 - Aug 2024</p>
-                            <h3 class="text-xl font-semibold text-gray-800">SDR Intern, DRDL Hyderabad</h3>
-                            <p class="text-gray-600 mt-1">Created an FM transreciever using GNU radio and pluto sdr</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Education Section -->
-            <section id="education" class="py-20 md:py-28 bg-white">
-                <div class="container mx-auto px-6">
-                    <div class="animated-item text-center">
-                        <h2 class="text-3xl font-bold inline-block section-title">Education</h2>
-                    </div>
-                     <div class="timeline max-w-3xl mx-auto mt-8">
-                        <div class="timeline-item animated-item">
-                            <div class="timeline-icon"><i data-lucide="graduation-cap"></i></div>
-                            <p class="text-sm text-gray-500">Feb. 2026 - present</p>
-                            <h3 class="text-xl font-semibold text-gray-800">Ecole Centrale, Lille, France</h3>
-                            <p class="text-gray-600 mt-1">Semester 8 exchange program</p>
-                        </div>
-                    <div class="timeline max-w-3xl mx-auto mt-8">
-                        <div class="timeline-item animated-item">
-                            <div class="timeline-icon"><i data-lucide="graduation-cap"></i></div>
-                            <p class="text-sm text-gray-500">Sept. 2022 - present</p>
-                            <h3 class="text-xl font-semibold text-gray-800">MAHINDRA UNIVERSITY, Hyderabad, India</h3>
-                            <p class="text-gray-600 mt-1">Bachelor of Technology in Electronics and Computers Engineering</p>
-                        </div>
-                        <div class="timeline-item animated-item">
-                            <div class="timeline-icon"><i data-lucide="graduation-cap"></i></div>
-                            <p class="text-sm text-gray-500">Apr. 2020 - Apr. 2022</p>
-                            <h3 class="text-xl font-semibold text-gray-800">FIITJEE JUNIOR COLLEGE DILSHUKNAGAR, Hyderabad, India</h3>
-                            <p class="text-gray-600 mt-1">+1 and +2</p>
-                        </div>
-                        <div class="timeline-item animated-item">
-                            <div class="timeline-icon"><i data-lucide="graduation-cap"></i></div>
-                            <p class="text-sm text-gray-500">Apr. 2015 - Mar. 2020</p>
-                            <h3 class="text-xl font-semibold text-gray-800">EDIFY WORLD SCHOOL BALAPUR, Hyderabad, India</h3>
-                            <p class="text-gray-600 mt-1">Schooling upto 10th</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Achievements Section -->
-            <section id="achievements" class="py-20 md:py-28">
-                <div class="container mx-auto px-6">
-                    <div class="animated-item text-center">
-                        <h2 class="text-3xl font-bold inline-block section-title">Achievements</h2>
-                        <p class="mt-2 text-gray-600 max-w-2xl mx-auto">A few of my proudest accomplishments.</p>
-                    </div>
-                    <div class="mt-16 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <div class="bg-white p-6 rounded-lg shadow-md text-center animated-item">
-                            <i data-lucide="trophy" class="w-12 h-12 mx-auto text-blue-500 mb-4"></i>
-                            <h3 class="text-xl font-semibold text-gray-800">Lam research competition 2024 Finalist, IISC Bengaluru, India</h3>
-                            <p class="text-gray-600 mt-2 text-sm">Top 25 teams among a total of 600+ teams participated.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md text-center animated-item">
-                            <i data-lucide="trophy" class="w-12 h-12 mx-auto text-blue-500 mb-4"></i>
-                            <h3 class="text-xl font-semibold text-gray-800">SAUVC2025, ranked 6th among teams, Singapore polytechnique, Singapore</h3>
-                            <p class="text-gray-600 mt-2 text-sm">1st among Indian teams in Round 1 of the competition.</p>
-                        </div>
-                        <div class="bg-white p-6 rounded-lg shadow-md text-center animated-item">
-                            <i data-lucide="trophy" class="w-12 h-12 mx-auto text-blue-500 mb-4"></i>
-                            <h3 class="text-xl font-semibold text-gray-800">Academic Scholorship AY2023-24, Mahindra University, Hyderabad</h3>
-                            <p class="text-gray-600 mt-2 text-sm">Reciepent of  Academic scholorship of 100000 INR for Academic year 2023-24.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-    
-            <!-- Contact Section -->
-            <section id="contact" class="py-20 md:py-32">
-                <div class="container mx-auto px-6 text-center">
-                    <div class="animated-item">
-                        <h2 class="text-3xl font-bold text-gray-800">Let's Build Something Great</h2>
-                        <p class="mt-3 text-gray-600 max-w-xl mx-auto">
-                            Open to discussing new opportunities. Feel free to reach out.
-                        </p>
-                        <a href="mailto:ankurvadlamani@gmail.com" class="mt-8 inline-block bg-blue-500 text-white font-bold px-10 py-4 rounded-lg shadow-lg hover:bg-blue-600 transition-all transform hover:scale-105">
-                            <i data-lucide="mail" class="inline-block mr-2 -mt-1"></i>
-                            Say Hello
-                        </a>
-                    </div>
-                </div>
-            </section>
-    
-        </main>
-        
-        <!-- Project Modal -->
-        <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
-            <div id="modal-content" class="bg-white rounded-lg shadow-2xl w-full max-w-3xl max-h-full overflow-y-auto">
-                <!-- Modal content will be populated by JS -->
-            </div>
-        </div>
-    
-    
-        <footer class="bg-gray-800 text-white py-6">
-            <div class="container mx-auto px-6 text-center text-sm">
-                <p>&copy; 2025 Ankur Vadlamani. All Rights Reserved.</p>
-            </div>
-        </footer>
-    
+    </main>
 
+    <!-- Modal -->
+    <div id="modal" class="fixed inset-0 bg-black/50 z-50 hidden items-center justify-center p-4">
+        <div id="modal-content" class="bg-white rounded-lg w-full max-w-3xl max-h-[90vh] overflow-y-auto p-6"></div>
+    </div>
 
-                // --- Mobile Menu Logic ---
-                const mobileMenuButton = document.getElementById('mobile-menu-button');
-                const mobileMenu = document.getElementById('mobile-menu');
+    <footer class="bg-gray-800 text-white py-6 text-center">
+        <p>&copy; 2026 Ankur Vadlamani</p>
+    </footer>
 
-                if (mobileMenuButton && mobileMenu) {
-                    mobileMenuButton.addEventListener('click', () => {
-                        mobileMenu.classList.toggle('hidden');
-                    });
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            lucide.createIcons();
 
-                    const mobileMenuLinks = mobileMenu.querySelectorAll('a');
-                    mobileMenuLinks.forEach(link => {
-                        link.addEventListener('click', () => {
-                            mobileMenu.classList.add('hidden');
-                        });
-                    });
+            // Mobile Menu
+            const btn = document.getElementById('mobile-menu-button');
+            const menu = document.getElementById('mobile-menu');
+            btn.onclick = () => menu.classList.toggle('hidden');
+
+            const projects = [
+                {
+                    id: 1,
+                    title: "Autonomous Underwater Vehicle",
+                    image: "https://i.postimg.cc/Y2ZXZ8r4/auv-cover.jpg",
+                    videoUrl: "https://www.youtube.com/embed/_i2n2dTLuUw",
+                    description: "Designing and building an AUV for underwater exploration. Managed power systems and sensor logic.",
+                    projectGoal: "Create a fully autonomous vehicle for object detection tasks.",
+                    keyChallenges: "Waterproofing and high-density power management.",
+                    technologies: ["KiCad", "Jetson Nano", "MicroPython", "Fusion 360"]
+                },
+                {
+                    id: 2,
+                    title: "Precision Dispensing System",
+                    image: "https://i.postimg.cc/68FGPqGY/Dispenser-Detail.jpg",
+                    videoUrl: "https://www.youtube.com/embed/lHVSn8xIPrY",
+                    description: "High-precision microliter fluid dispensing system controlled via custom firmware.",
+                    projectGoal: "Achieve accuracy of +/- 1 microliter.",
+                    keyChallenges: "Stepper motor calibration for micro-movements.",
+                    technologies: ["Pico W", "MicroPython", "Easy-EDA"]
+                },
+                {
+                    id: 3,
+                    title: "ESP based PLC",
+                    image: "https://i.postimg.cc/FRFPrDpN/plc.png",
+                    description: "Cost-effective industrial PLC prototype with web interface monitoring.",
+                    projectGoal: "Industrial-grade control at a fraction of the cost.",
+                    keyChallenges: "Galvanic isolation and system robustness.",
+                    technologies: ["ESP32", "Optocouplers", "CAN", "Arduino IDE"]
                 }
-                
-                const projects = [
-                    {
-                        id: 1,
-                        title: "Autonomous Underwater Vehicle",
-                        image: "https://i.postimg.cc/Y2ZXZ8r4/auv-cover.jpg",
-                        detailImage: "https://i.postimg.cc/W3y2g1fM/AUV-Detail.jpg",
-                        videoUrl: "https://www.youtube.com/embed/_i2n2dTLuUw", 
-                        description: "This project involved designing and building an AUV for underwater exploration tasks. I was responsible for the power distribution system and sensor integration.",
-                        projectGoal: "To create a fully autonomous vehicle capable of navigating a pre-defined course and performing specific tasks like object detection.",
-                        keyChallenges: "Ensuring all electronic components were designed properly with respect to the size constraints, waterproofed and managing power consumption for extended missions were the few biggest hurdles we overcame.",
-                        technologies: ["KiCad", "Jetson Nano", "Micro Python", "Fusion 360" ]
-                    },
-                    {
-                        id: 2,
-                        title: "Precision dispensing system",
-                        image: "https://i.postimg.cc/68FGPqGY/Dispenser-Detail.jpg",
-                        detailImage: "https://i.postimg.cc/68FGPqGY/Dispenser-Detail.jpg",
-                        videoUrl: "https://www.youtube.com/embed/lHVSn8xIPrY",
-                        description: "Developed a high-precision system for dispensing micro-liters of fluid, controlled by a custom circuit and firmware.",
-                        projectGoal: "Achieve a dispensing accuracy of +/- 1 microliter with a responsive user interface for calibration and operation.",
-                        keyChallenges: "Calibrating the stepper motor for precise movements and designing the system to fit the form factor.",
-                        technologies: ["Pico W", "Micro Python", "Stepper Motors", "Easy-EDA"]
-                    },
-                         {
-                        id: 3,
-                        title: "ESP based PLC",
-                        image: "https://i.postimg.cc/FRFPrDpN/plc.png",
-                        detailImage: "https://i.postimg.cc/FRFPrDpN/plc.png",
-                        videoUrl: "https://i.postimg.cc/FRFPrDpN/plc.png",
-                        description: "Developed a PLC like architecture using ESP which can be controlled and monitored with a web interface hosted by the microcontroller.",
-                        projectGoal: "To engineer a cost-effective prototype that emulates industrial PLC functionality at a fraction of the market price.",
-                        keyChallenges: "Creating a galvanic isolation between the interfaces and the microcontroller while maintaining reliability robustness and responsiveness of the system",
-                        technologies: ["ESP32", "Optocouplers", "CAN", "Ki-CAD", "Arduino IDE", "Buck Converters"]
-                    }
-                ];
-    
-const portfolioContainer = document.querySelector('#portfolio .grid');
+            ];
 
-if (portfolioContainer) {
-
-    // Display top 3 projects on the home page
-    const featuredProjects = projects.slice(0, 3);
-
-    featuredProjects.forEach((project, index) => {
-
-        const card = document.createElement('div');
-
-        card.className = `
-            bg-white 
-            rounded-lg 
-            shadow-lg 
-            overflow-hidden 
-            portfolio-card 
-            animated-item
-        `;
-
-        card.style.transitionDelay = `${index * 0.1}s`;
-
-        card.innerHTML = `
-            <img 
-                src="${project.image}" 
-                alt="${project.title}" 
-                class="w-full h-48 object-cover"
-            >
-
-            <div class="p-6">
-
-                <h3 class="text-xl font-semibold mb-2 text-gray-800">
-                    ${project.title}
-                </h3>
-
-                <p class="text-gray-600 mb-4 text-sm">
-                    ${project.description.substring(0, 100)}...
-                </p>
-
-                <button 
-                    onclick="openModal(${project.id})" 
-                    class="text-blue-500 hover:underline font-medium text-sm"
-                >
-                    View Details &rarr;
-                </button>
-
-            </div>
-        `;
-
-        portfolioContainer.appendChild(card);
-    });
-}
-                
-                const modal = document.getElementById('modal');
-                const modalContent = document.getElementById('modal-content');
-    
-                window.openModal = function(projectId) {
-                    const project = projects.find(p => p.id === projectId);
-                    if (!project || !modal || !modalContent) return;
-
-                    let mediaHtml = '';
-                    if (project.videoUrl) {
-                        mediaHtml = `
-                            <div class="video-container rounded-lg mb-6">
-                                <iframe src="${project.videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                        `;
-                    } else {
-                        mediaHtml = `<img src="${project.detailImage}" alt="${project.title}" class="w-full rounded-lg mb-6">`;
-                    }
-                    
-                    modalContent.innerHTML = `
-                        <div class="p-6 md:p-8">
-                            <div class="flex justify-between items-start mb-4">
-                                <h2 class="text-2xl md:text-3xl font-bold text-gray-800">${project.title}</h2>
-                                <button onclick="closeModal()" class="text-gray-500 hover:text-gray-800 p-2 -mr-2 -mt-2 text-2xl leading-none">&times;</button>
-                            </div>
-                            ${mediaHtml}
-                            <h3 class="text-xl font-semibold mb-2">Project Goal</h3>
-                            <p class="text-gray-700 leading-relaxed mb-6">${project.projectGoal}</p>
-                            
-                            <h3 class="text-xl font-semibold mb-2">Key Challenges</h3>
-                            <p class="text-gray-700 leading-relaxed mb-6">${project.keyChallenges}</p>
-
-                            <h3 class="text-xl font-semibold mb-3">Technologies Used</h3>
-                            <div class="flex flex-wrap gap-3">
-                                ${project.technologies.map(tech => `<span class="bg-blue-100 text-blue-800 text-sm font-medium px-4 py-2 rounded-full">${tech}</span>`).join('')}
-                            </div>
-                        </div>
-                    `;
-                    modal.classList.remove('hidden');
-                    modal.classList.add('flex');
-                    document.body.style.overflow = 'hidden';
-                }
-    
-                window.closeModal = function() {
-                    if (!modal) return;
-                    modal.classList.add('hidden');
-                    modal.classList.remove('flex');
-                    document.body.style.overflow = 'auto';
-                }
-                
-                if (modal) {
-                    modal.addEventListener('click', (e) => {
-                        if (e.target === modal) {
-                            closeModal();
-                        }
-                    });
-                }
-                
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape') {
-                        closeModal();
-                    }
-                });
-    
-                const animatedItems = document.querySelectorAll('.animated-item');
-                const observer = new IntersectionObserver((entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting) {
-                            entry.target.classList.add('is-visible');
-                        }
-                    });
-                }, {
-                    threshold: 0.1
-                });
-                animatedItems.forEach(item => {
-                    observer.observe(item);
-                });
+            const grid = document.querySelector('#portfolio .grid');
+            projects.forEach(p => {
+                const card = document.createElement('div');
+                card.className = "bg-white rounded-lg shadow-lg overflow-hidden portfolio-card animated-item";
+                card.innerHTML = `
+                    <img src="${p.image}" class="w-full h-48 object-cover">
+                    <div class="p-6">
+                        <h3 class="font-bold text-xl mb-2">${p.title}</h3>
+                        <p class="text-sm text-gray-600 mb-4">${p.description}</p>
+                        <button onclick="openModal(${p.id})" class="text-blue-500 font-semibold">View Details &rarr;</button>
+                    </div>`;
+                grid.appendChild(card);
             });
-        </script>
-    </body>
-    </html>
+
+            window.openModal = (id) => {
+                const p = projects.find(x => x.id === id);
+                const modal = document.getElementById('modal');
+                const content = document.getElementById('modal-content');
+                
+                content.innerHTML = `
+                    <div class="flex justify-between items-center mb-4">
+                        <h2 class="text-2xl font-bold">${p.title}</h2>
+                        <button onclick="closeModal()" class="text-3xl">&times;</button>
+                    </div>
+                    ${p.videoUrl ? `<div class="video-container mb-4"><iframe src="${p.videoUrl}" frameborder="0" allowfullscreen></iframe></div>` : `<img src="${p.image}" class="rounded mb-4">`}
+                    <h4 class="font-bold">Goal</h4><p class="mb-4">${p.projectGoal}</p>
+                    <h4 class="font-bold">Technologies</h4>
+                    <div class="flex flex-wrap gap-2">${p.technologies.map(t => `<span class="bg-blue-100 text-blue-800 text-xs px-3 py-1 rounded-full">${t}</span>`).join('')}</div>
+                `;
+                modal.classList.replace('hidden', 'flex');
+                document.body.style.overflow = 'hidden';
+            };
+
+            window.closeModal = () => {
+                document.getElementById('modal').classList.replace('flex', 'hidden');
+                document.body.style.overflow = 'auto';
+            };
+
+            // Animations
+            const observer = new IntersectionObserver(entries => {
+                entries.forEach(e => { if(e.isIntersecting) e.target.classList.add('is-visible') });
+            }, { threshold: 0.1 });
+            document.querySelectorAll('.animated-item').forEach(el => observer.observe(el));
+        });
+    </script>
+</body>
+</html>
