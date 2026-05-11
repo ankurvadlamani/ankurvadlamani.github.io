@@ -161,12 +161,32 @@
                             Visit My Blog
                         </a>
                     </div>
-                    <div class="mt-8 flex space-x-6">
-                        <a href="https://www.linkedin.com/in/ankur-vadlamani" class="text-gray-600 hover:text-blue-500"><i data-lucide="linkedin" class="w-6 h-6"></i></a>
-                        <a href="https://github.com/ankurvadlamani" class="text-gray-600 hover:text-blue-500"><i data-lucide="github" class="w-6 h-6"></i></a>
-                        <a href="mailto:ankurvadlamani@gmail.com" class="text-gray-600 hover:text-blue-500"><i data-lucide="mail" class="w-6 h-6"></i></a>
-                        <a href="https://www.youtube.com/@ankurvadlamani5116" class="text-gray-600 hover:text-blue-500"><i data-lucide="youtube" class="w-6 h-6"></i></a>
-                    </div>
+                    <div class="mt-8 flex items-center space-x-6">
+
+    <a href="https://www.linkedin.com/in/ankur-vadlamani" 
+       target="_blank"
+       class="text-gray-700 hover:text-blue-500 transition-colors">
+        <i data-lucide="linkedin" class="w-7 h-7"></i>
+    </a>
+
+    <a href="https://github.com/ankurvadlamani" 
+       target="_blank"
+       class="text-gray-700 hover:text-black transition-colors">
+        <i data-lucide="github" class="w-7 h-7"></i>
+    </a>
+
+    <a href="mailto:ankurvadlamani@gmail.com" 
+       class="text-gray-700 hover:text-red-500 transition-colors">
+        <i data-lucide="mail" class="w-7 h-7"></i>
+    </a>
+
+    <a href="https://www.youtube.com/@ankurvadlamani5116" 
+       target="_blank"
+       class="text-gray-700 hover:text-red-600 transition-colors">
+        <i data-lucide="youtube" class="w-7 h-7"></i>
+    </a>
+
+</div>
                 </div>
                 <div class="md:w-2/5 animated-item" style="transition-delay: 0.3s;">
                     <img src="https://i.postimg.cc/zfqg5JSB/Whats-App-Image-2025-07-22-at-11-51-12-4cca3e7f.jpg" alt="Ankur Vadlamani" class="rounded-full shadow-2xl mx-auto">
@@ -329,7 +349,9 @@
     
         <script>
             document.addEventListener('DOMContentLoaded', () => {
-                lucide.createIcons();
+               setTimeout(() => {
+    lucide.createIcons();
+}, 100);
 
                 // --- Mobile Menu Logic ---
                 const mobileMenuButton = document.getElementById('mobile-menu-button');
