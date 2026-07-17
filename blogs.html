@@ -160,10 +160,6 @@ To overcome these limitations, this project introduces an EdgeAI-enabled smart p
 Instead of equipping every parking slot with an expensive communication-enabled controller, each slot contains only a low-cost sensor such as an ultrasonic, infrared, or magnetometer sensor. These sensors forward raw measurements to a nearby ESP32-based cluster head.
 </p>
 
-${pic(
-"https://YOUR-FOURTH-IMAGE-LINK.jpg",
-"Cluster head architecture"
-)}
 
 <p>
 The cluster head performs feature extraction and executes a lightweight machine learning model locally. By predicting whether the parking slot is likely to change state, it determines whether transmitting data to the cloud is actually necessary.
