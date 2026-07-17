@@ -10,13 +10,68 @@ Updating projects code block
                     keyChallenges: "Challenges for your third project.",
                     technologies: ["Tech 1", "Tech 2", "Tech 3"]
                 }
-Updating Blogs code Block
-<a href="blog-post.html" class="block bg-white rounded-lg shadow-lg overflow-hidden portfolio-card transition">
-                    <img src="https://placehold.co/600x400/EDF2F7/2D3748?text=Blog+Post+1" alt="Blog Post 1" class="w-full h-56 object-cover">
-                    <div class="p-6">
-                        <p class="text-sm text-gray-500 mb-1">Web Development</p>
-                        <h3 class="text-xl font-semibold mb-2 text-gray-800">Demystifying the Event Loop in JavaScript</h3>
-                        <p class="text-gray-600 mb-4 text-sm">A deep dive into one of the most misunderstood concepts in JavaScript, explained with simple analogies...</p>
-                    </div>
-                </a>
+Updating Blogs code Block{
+    id: xx,
+
+    image: "https://your-cover-image.jpg",
+
+    alt: "Describe the image",
+
+    category: "Embedded Systems",
+
+    date: "Month DD, YYYY",
+
+    title: "Complete Blog Title",
+
+    excerpt:
+        "Two-line description shown on the blog list.",
+
+    contentHTML: `
+
+${pic(
+"https://your-cover-image.jpg",
+"Figure 1. Cover Image"
+)}
+
+<p>
+Write your introduction here...
+</p>
+
+<h2>Section 1</h2>
+
+<p>
+Explain the first concept...
+</p>
+
+${pic(
+"https://your-second-image.jpg",
+"Figure 2. Something Important"
+)}
+
+<p>
+Continue writing...
+</p>
+
+<h2>Section 2</h2>
+
+<p>
+More explanation...
+</p>
+
+<h2>Results</h2>
+
+<ul>
+<li>Point One</li>
+<li>Point Two</li>
+<li>Point Three</li>
+</ul>
+
+<h2>Conclusion</h2>
+
+<p>
+Summarize the work here.
+</p>
+
+`
+}
 
