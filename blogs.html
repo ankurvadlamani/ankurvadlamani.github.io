@@ -72,6 +72,7 @@
         </div>
     </main>
     
+    
     <!-- Blog Post Modal -->
     <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
         <div id="modal-content" class="bg-white rounded-lg shadow-2xl w-full max-w-3xl max-h-full overflow-y-auto">
@@ -87,31 +88,123 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
+            function pic(src, caption = "") {
+    return `
+        <figure class="my-8">
+            <img
+                src="${src}"
+                alt="${caption}"
+                class="w-full rounded-lg shadow-lg"
+            >
+            ${
+                caption
+                    ? `<figcaption class="text-center text-sm text-gray-500 mt-2">${caption}</figcaption>`
+                    : ""
+            }
+        </figure>
+    `;
+}
             const posts = [
-                {
-                    id: 1,
-                    image: "https://i.postimg.cc/3JKjKxTj/image.png",
-                    alt: "Low bandwidth transmission",
-                    category: "Physics",
-                    date: "December 17, 2025",
-                    title: "EdgeAI-Enabled Smart Parking System for Efficient, Low-Cost Occupancy Detection",
-                    excerpt: "Urban transportation systems are undergoing a profound transformation as cities grow denser and vehicle ownership continues to rise...",
-                    contentHTML: `
-                        <p>This is the full content for the first blog post. Urban transportation systems are undergoing a profound transformation as cities grow denser and vehicle ownership continues to rise. One of the most persistent and underrated contributors to traffic congestion is the challenge of finding available parking spaces. On average, drivers in metropolitan areas spend a significant portion of their commute simply searching for parking, leading to wasted time, unnecessary fuel consumption, and increased environmental pollution. This everyday inconvenience scales dramatically when multiplied across thousands of vehicles and hundreds of parking zones, resulting in measurable economic and environmental impact for cities.
-To address these issues, smart parking systems have emerged as an essential component of modern smart city infrastructure. These systems aim to provide real-time information about parking availability, helping drivers make informed decisions and reducing unnecessary circulation within urban centres. Conventional smart parking solutions rely on IoT sensors installed at each parking slot, which continuously monitor the occupancy status and transmit updates to a cloud server. While this approach has improved parking efficiency compared to traditional manual monitoring, it exposes several fundamental limitations that hinder its long-term sustainability and scalability.
-A primary issue faced by existing systems is redundant data transmission. Parking slots often remain unchanged for extended durations either consistently empty or occupied. Yet, most IoT-based systems transmit the same status repeatedly, creating a flood of redundant messages. When multiplied across hundreds or thousands of slots, the volume of unnecessary data becomes substantial. This bloated communication load can overwhelm networks, increase bandwidth requirements, and cause delays during peak usage periods. For commercial deployments that rely on paid data plans or cloud services, such inefficiency directly translates into higher operational costs.
-Scalability presents another critical challenge. Traditional systems require each parking slot to be equipped with its own microcontroller featuring Wi-Fi, LoRa, or other communication modules. These microcontrollers are often the most expensive component of the installation. As the number of parking slots increases, the cost of procurement, installation, and maintenance escalates rapidly, making large-scale deployments financially prohibitive. University campuses, shopping malls, airports, corporate campuses, and municipal parking facilities often contain hundreds or thousands of parking slots—systems of this size cannot rely on high-cost per-slot hardware.
-Power consumption is an equally important concern. Battery-powered sensors must remain operational for several months or years to maintain system reliability. However, continuous data transmission drains power rapidly, necessitating frequent battery replacements. This increases maintenance overhead, disrupts system continuity, and creates operational burdens for facilities management teams.
-In the context of these limitations, the need for a more intelligent, efficient, and scalable smart parking architecture becomes evident. The rise of Edge Computing and EdgeAI provides a compelling opportunity to rethink traditional IoT models and optimize them for real-world viability. EdgeAI allows computational intelligence—typically located on cloud servers—to be executed close to the data source, reducing the dependency on constant communication and enabling real-time, low-latency decision-making.
-This project introduces an EdgeAI-enabled Smart Parking System that leverages a hierarchical cluster head architecture to solve the inefficiencies present in conventional systems. Instead of embedding computational and network capabilities in every parking slot, each slot is fitted with a simple, low-cost sensor (such as a magnetometer, infrared sensor, or ultrasonic module) responsible solely for detecting the presence of a vehicle. These sensors transmit minimal raw data to a centralized device called the cluster head, typically implemented using an ESP32 or similar microcontroller.
-The cluster head serves as the intelligent processing unit for a group of parking slots. It aggregates sensor inputs, performs real-time feature extraction, and runs a lightweight machine learning model to predict the stability of each parking slot’s state. This prediction allows the system to determine whether the slot is likely to remain in its current state—empty or occupied—or whether a state transition is imminent. Based on this prediction, the cluster head makes a critical decision: whether to transmit an update to the central server or suppress the transmission to avoid redundancy.
-This architecture fundamentally changes the data flow of smart parking systems. Instead of every sensor continuously transmitting identical status updates, the cluster head selectively communicates only meaningful state changes, such as when a vehicle arrives or leaves. As a result, the system drastically reduces unnecessary data transmission while preserving real-time accuracy. This reduction has far-reaching benefits: improved network performance, lower operational costs, extended battery life for sensors, and improved scalability for large deployments.
-The real-world applications of this approach are extensive. Commercial shopping centers can optimize parking allocations during peak hours. University campuses can provide reliable parking information to students and staff while reducing infrastructure costs. Smart cities can integrate such systems as part of their broader intelligent transportation networks, improving mobility and sustainability. Even private gated communities and office complexes can benefit from the reduced installation and maintenance costs offered by the EdgeAI-based solution.
-In summary, the proposed EdgeAI-enabled Smart Parking System addresses the core limitations of traditional IoT parking infrastructures by introducing local intelligence, predictive modelling, and efficient communication strategies. By combining low-cost sensors with edge-based machine learning, the system promotes energy efficiency, operational scalability, and real-time responsiveness—qualities essential for future-ready smart city environments. This project not only showcases the potential of embedded AI in everyday applications but also contributes to the broader mission of creating efficient, sustainable, and intelligent urban mobility systems.
-            <h2>Subheading for the Post</h2>
-                        <p>You can add more paragraphs and even other HTML elements like lists or blockquotes here to structure your full blog post content.</p>
-                    `
-                },
+            {
+    id: 1,
+    image: "https://i.postimg.cc/3JKjKxTj/image.png",
+    alt: "Low bandwidth transmission",
+    category: "Physics",
+    date: "December 17, 2025",
+    title: "EdgeAI-Enabled Smart Parking System for Efficient, Low-Cost Occupancy Detection",
+    excerpt: "Urban transportation systems are undergoing a profound transformation as cities grow denser and vehicle ownership continues to rise...",
+
+    contentHTML: `
+
+<p>
+Urban transportation systems are undergoing a profound transformation as cities grow denser and vehicle ownership continues to rise. One of the most persistent contributors to traffic congestion is the challenge of finding available parking spaces. Drivers often spend several minutes searching for parking, leading to wasted time, fuel consumption, and unnecessary emissions.
+</p>
+
+${pic(
+"https://i.postimg.cc/3JKjKxTj/image.png",
+"Overview of the proposed EdgeAI-enabled Smart Parking System"
+)}
+
+<p>
+Smart parking systems have emerged as an important component of modern smart city infrastructure. Their objective is to provide real-time parking availability, reducing congestion and improving traffic flow. Conventional systems typically install an IoT node at every parking slot which continuously transmits occupancy information to a cloud server.
+</p>
+
+<p>
+Although effective, this architecture introduces several limitations including excessive bandwidth usage, higher deployment costs, poor scalability, and increased power consumption.
+</p>
+
+
+<h2>Challenges with Existing Systems</h2>
+
+<p>
+One of the biggest issues is redundant communication. Parking slots often remain occupied or vacant for long periods, yet the sensors repeatedly transmit identical information. Across hundreds of parking spaces this creates a large amount of unnecessary network traffic.
+</p>
+
+<p>
+Scalability is another major concern. Every parking slot requires a microcontroller with wireless communication capability. As the parking lot grows, installation and maintenance costs increase dramatically.
+</p>
+
+<p>
+Battery-powered sensor nodes also suffer from reduced operating lifetime because of continuous wireless transmissions.
+</p>
+
+
+
+<h2>Proposed EdgeAI Architecture</h2>
+
+<p>
+To overcome these limitations, this project introduces an EdgeAI-enabled smart parking architecture based on cluster heads.
+</p>
+
+<p>
+Instead of equipping every parking slot with an expensive communication-enabled controller, each slot contains only a low-cost sensor such as an ultrasonic, infrared, or magnetometer sensor. These sensors forward raw measurements to a nearby ESP32-based cluster head.
+</p>
+
+${pic(
+"https://YOUR-FOURTH-IMAGE-LINK.jpg",
+"Cluster head architecture"
+)}
+
+<p>
+The cluster head performs feature extraction and executes a lightweight machine learning model locally. By predicting whether the parking slot is likely to change state, it determines whether transmitting data to the cloud is actually necessary.
+</p>
+
+<p>
+Only meaningful occupancy changes are transmitted, significantly reducing network traffic while maintaining real-time accuracy.
+</p>
+
+<h2>Benefits</h2>
+
+<p>
+The proposed architecture offers several important advantages:
+</p>
+
+<ul>
+<li>Reduced bandwidth consumption</li>
+<li>Lower cloud communication costs</li>
+<li>Improved battery lifetime</li>
+<li>Better scalability for large parking facilities</li>
+<li>Lower installation cost</li>
+</ul>
+
+
+
+<h2>Applications</h2>
+
+<p>
+This system can be deployed in shopping malls, universities, airports, office campuses, smart cities, and residential communities. The reduced infrastructure requirements make it economically feasible for large-scale deployments.
+</p>
+
+
+
+<h2>Conclusion</h2>
+
+<p>
+The proposed EdgeAI-enabled Smart Parking System addresses the major shortcomings of conventional IoT parking infrastructures through local intelligence and predictive communication. By combining inexpensive sensors with lightweight machine learning at the edge, the system improves energy efficiency, reduces operational costs, and enables highly scalable deployments suitable for future smart city environments.
+</p>
+
+`
+},
                 {
                     id: 2,
                     image: "https://placehold.co/800x400/E2E8F0/2D3748?text=Embedded+Systems",
@@ -190,7 +283,7 @@ In summary, the proposed EdgeAI-enabled Smart Parking System addresses the core 
                             <p class="text-sm text-gray-500">${post.category} &bull; ${post.date}</p>
                             <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2 leading-tight">${post.title}</h1>
                         </header>
-                        <img src="${post.image}" alt="${post.alt}" class="w-full h-auto rounded-lg shadow-lg mb-12">
+                        
                         <div class="prose lg:prose-lg max-w-none text-gray-800">
                             ${post.contentHTML}
                         </div>
