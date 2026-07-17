@@ -349,7 +349,9 @@
     
         <script>
             document.addEventListener('DOMContentLoaded', () => {
-lucide.createIcons();
+window.addEventListener("load", () => {
+    lucide.createIcons();
+});
 
                 // --- Mobile Menu Logic ---
                 const mobileMenuButton = document.getElementById('mobile-menu-button');
