@@ -138,12 +138,36 @@ In summary, the proposed EdgeAI-enabled Smart Parking System addresses the core 
                         openModal(post.id);
                     };
                     postElement.innerHTML = `
-                        <div class="flex justify-between items-center">
-                            <h3 class="text-xl font-semibold text-gray-800 group-hover:text-blue-600">${post.title}</h3>
-                            <p class="text-sm text-gray-500 text-right flex-shrink-0 ml-4">${post.date}</p>
-                        </div>
-                        <p class="text-sm text-blue-600 font-medium mt-1">${post.category}</p>
-                    `;
+<div class="flex items-center gap-4">
+
+    <img
+        src="${post.image}"
+        alt="${post.alt}"
+        class="w-24 h-16 object-cover rounded-lg flex-shrink-0"
+    >
+
+    <div class="flex-1">
+
+        <div class="flex justify-between items-start">
+
+            <h3 class="text-xl font-semibold text-gray-800">
+                ${post.title}
+            </h3>
+
+            <p class="text-sm text-gray-500 ml-4 whitespace-nowrap">
+                ${post.date}
+            </p>
+
+        </div>
+
+        <p class="text-sm text-blue-600 font-medium">
+            ${post.category}
+        </p>
+
+    </div>
+
+</div>
+`;
                     container.appendChild(postElement);
 
                     const divider = document.createElement('hr');
