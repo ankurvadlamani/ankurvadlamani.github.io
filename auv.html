@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AUV Electrical System: Case Study | Ankur Vadlamani</title>
+<meta name="description" content="Case study: designing the electrical system of an autonomous underwater vehicle that finished in the top 6 of 45+ teams at SAUVC 2025.">
+<meta property="og:image" content="https://i.postimg.cc/Y2ZXZ8r4/auv-cover.jpg">
+<meta name="theme-color" content="#0F1714">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F1714'/%3E%3Ccircle cx='32' cy='32' r='20' fill='none' stroke='%23C97B3D' stroke-width='5'/%3E%3Ctext x='32' y='38' text-anchor='middle' font-family='monospace' font-weight='700' font-size='17' fill='%23F4F1EA'%3EAV%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#0F1714;--ink-2:#16211C;--ink-3:#1F2D27;--copper:#C97B3D;--copper-lt:#E3A062;--copper-dk:#9A5424;--paper:#F5F1E8;--paper-2:#ECE6D8;--card:#FFFDF8;--line:#DCD3C2;--text:#1A221E;--muted:#5B665F;--silk:#F4F1EA;--silk-muted:#A9B5AD;
+--display:'Space Grotesk',system-ui,sans-serif;--body:'Inter',system-ui,sans-serif;--mono:'JetBrains Mono',ui-monospace,Menlo,Consolas,monospace}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--text);font:17px/1.7 var(--body);-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+h1,h2,h3{font-family:var(--display);line-height:1.15;margin:0;letter-spacing:-.01em}
+.wrap{max-width:860px;margin:0 auto;padding:0 20px}
+.wide{max-width:1100px}
+.eyebrow{font:500 12.5px var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--copper-dk);display:flex;align-items:center;gap:10px;margin:0}
+.eyebrow::before{content:"";width:22px;height:2px;background:var(--copper)}
+.nav{background:var(--ink);border-bottom:1px solid rgba(201,123,61,.2)}
+.nav .wrap{display:flex;align-items:center;justify-content:space-between;height:60px}
+.nav a{color:var(--silk-muted);text-decoration:none;font:500 14px var(--mono)}
+.nav a:hover{color:var(--copper-lt)}
+.nav .home{color:var(--silk);font:700 16px var(--display)}
+.head{background:var(--ink);color:var(--silk);padding:56px 0 0}
+.head .eyebrow{color:var(--copper-lt)}
+.head h1{font-size:clamp(34px,5.5vw,56px);color:#fff;margin:14px 0 14px}
+.head p.sub{font-size:19px;color:var(--silk-muted);margin:0 0 34px;max-width:680px}
+.glance{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(201,123,61,.35)}
+.glance div{padding:18px 16px 22px;border-left:1px solid rgba(244,241,234,.1)}
+.glance div:first-child{border-left:0;padding-left:0}
+.glance small{display:block;font:500 11.5px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--silk-muted)}
+.glance b{font:600 17px/1.35 var(--display);color:#fff}
+.cover{margin-top:0;background:linear-gradient(var(--ink) 50%,var(--paper) 50%)}
+.cover img{border-radius:16px;width:100%;max-height:520px;object-fit:cover;box-shadow:0 30px 60px -30px rgba(0,0,0,.5)}
+article section{padding:44px 0 8px}
+article h2{font-size:30px;margin:10px 0 14px}
+article p{margin:0 0 14px}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+.cards div{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:18px}
+.cards b{display:block;font:600 16px/1.3 var(--display);margin-bottom:6px}
+.cards span{font-size:15px;color:var(--muted);line-height:1.55}
+.figure{background:var(--ink);border-radius:16px;padding:18px;margin-top:18px}
+.figure svg{width:100%;height:auto;display:block}
+.caption{font:500 13px var(--mono);color:var(--muted);margin-top:10px}
+.result{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:18px}
+.result div{background:var(--ink);color:var(--silk);border-radius:12px;padding:22px}
+.result strong{font:700 34px/1 var(--display);color:var(--copper-lt)}
+.result span{display:block;margin-top:8px;color:var(--silk-muted);font-size:15px}
+.video{position:relative;padding-top:56.25%;border-radius:14px;overflow:hidden;background:#000;margin-top:18px}
+.video iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.tag{font:500 13px/1 var(--mono);padding:7px 10px;border-radius:6px;background:var(--paper-2)}
+.next{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:48px 0 70px}
+.btn{display:inline-flex;align-items:center;gap:8px;font:600 15px/1 var(--body);padding:13px 20px;border-radius:10px;text-decoration:none}
+.btn-copper{background:var(--copper);color:var(--ink)}
+.btn-copper:hover{background:var(--copper-lt)}
+.btn-line{border:1.5px solid var(--line);color:var(--text)}
+.btn-line:hover{border-color:var(--copper)}
+footer{background:var(--ink);color:var(--silk-muted);font:13px var(--mono);padding:24px 0;text-align:center}
+@media (max-width:720px){.glance{grid-template-columns:1fr 1fr}.glance div:nth-child(3){border-left:0;padding-left:0}.cards,.result{grid-template-columns:1fr}}
+:focus-visible{outline:3px solid var(--copper);outline-offset:3px;border-radius:6px}
+</style>
+</head>
+<body>
+<header class="nav"><div class="wrap wide"><a class="home" href="index.html">Ankur Vadlamani</a><a href="index.html#work">← All case studies</a></div></header>
+
+<div class="head">
+  <div class="wrap">
+    <p class="eyebrow">Case study · Oct 2023 – Mar 2025</p>
+    <h1>Powering an autonomous underwater vehicle</h1>
+    <p class="sub">How our team designed, fabricated and tested the AUV's electrical system, and reached the SAUVC 2025 finals in Singapore.</p>
+    <div class="glance">
+      <div><small>My role</small><b>Electrical Head</b></div>
+      <div><small>Team</small><b>Led 15 juniors</b></div>
+      <div><small>Outcome</small><b>Top 6 / 45+ teams</b></div>
+      <div><small>Advisors</small><b>Dr. Gopinath, Dr. Sebastian</b></div>
+    </div>
+  </div>
+</div>
+<div class="cover"><div class="wrap"><img src="https://i.postimg.cc/Y2ZXZ8r4/auv-cover.jpg" alt="The AUV team with the vehicle"></div></div>
+
+<article class="wrap">
+  <section>
+    <p class="eyebrow">01 · The problem</p>
+    <h2>A lot of electronics in a small, sealed hull</h2>
+    <p>An AUV has to run a compute module, sensors and thrusters from a single battery, inside a waterproof enclosure that is hard to open once sealed. Anything that browns out, overheats or can't be shut down safely ends the run, or damages the vehicle.</p>
+    <p>The electrical system had to be compact, safe to operate in the pool, and dependable for long missions.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">02 · What I built</p>
+    <h2>Three pieces of hardware</h2>
+    <div class="cards">
+      <div><b>Power distribution</b><span>A distribution network with safety relays and a kill-switch interface, so the vehicle can be powered down instantly.</span></div>
+      <div><b>Pico sensor shield</b><span>A custom Raspberry Pi Pico shield that interfaces the sensors with the NVIDIA Jetson Xavier.</span></div>
+      <div><b>Interface PCBs</b><span>Custom boards for sensor-to-Jetson communication, improving integration and deployment reliability.</span></div>
+    </div>
+    <div class="figure">
+      <svg viewBox="0 0 760 330" role="img" aria-label="Block diagram: battery to power distribution with relays and kill switch, feeding the Jetson Xavier, the Pico shield with sensors, and the thrusters">
+        <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0l10 5-10 5z" fill="#C97B3D"/></marker>
+        <pattern id="gr" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0v20" fill="none" stroke="#1F2D27"/></pattern></defs>
+        <rect width="760" height="330" fill="url(#gr)"/>
+        <g font-family="JetBrains Mono,monospace" font-size="14" text-anchor="middle">
+          <g fill="#16211C" stroke="#C97B3D" stroke-width="1.6">
+            <rect x="20" y="130" width="120" height="64" rx="8"/>
+            <rect x="200" y="118" width="170" height="88" rx="8" stroke-width="2.4"/>
+            <rect x="450" y="24" width="150" height="64" rx="8"/>
+            <rect x="450" y="130" width="150" height="64" rx="8"/>
+            <rect x="450" y="236" width="150" height="64" rx="8"/>
+            <rect x="650" y="130" width="96" height="64" rx="8" stroke-dasharray="4 4"/>
+          </g>
+          <g fill="#F4F1EA">
+            <text x="80" y="158">Battery</text><text x="80" y="178" fill="#A9B5AD" font-size="12">main supply</text>
+            <text x="285" y="150">Power distribution</text><text x="285" y="172" fill="#E3A062" font-size="12">safety relays</text><text x="285" y="190" fill="#E3A062" font-size="12">kill switch</text>
+            <text x="525" y="52">Jetson Xavier</text><text x="525" y="72" fill="#A9B5AD" font-size="12">autonomy / vision</text>
+            <text x="525" y="158">Pico shield</text><text x="525" y="178" fill="#A9B5AD" font-size="12">custom PCB</text>
+            <text x="525" y="264">Thrusters</text><text x="525" y="284" fill="#A9B5AD" font-size="12">actuation</text>
+            <text x="698" y="158">Sensors</text>
+          </g>
+          <g stroke="#C97B3D" stroke-width="2" fill="none" marker-end="url(#a)">
+            <path d="M140 162h56"/><path d="M370 140 C410 140 410 56 446 56"/><path d="M370 162h76"/><path d="M370 184 C410 184 410 268 446 268"/>
+          </g>
+          <g stroke="#A9B5AD" stroke-width="1.6" fill="none" stroke-dasharray="5 4">
+            <path d="M525 128V92"/><path d="M646 162h-42"/>
+          </g>
+          <text x="560" y="114" fill="#A9B5AD" font-size="11">data</text>
+        </g>
+      </svg>
+    </div>
+    <p class="caption">Simplified architecture. Copper lines carry power; dashed lines carry data.</p>
+    <div class="tags"><span class="tag">KiCad</span><span class="tag">Jetson Xavier</span><span class="tag">RP2040</span><span class="tag">MicroPython</span><span class="tag">Fusion 360</span></div>
+  </section>
+
+  <section>
+    <p class="eyebrow">03 · Leading the team</p>
+    <h2>Building people as well as boards</h2>
+    <p>As Electrical Head (Apr 2024 – Apr 2025) I managed the vehicle's whole electrical system with a team of 15 juniors, and ran workshops on circuit design, PCB design and microcontrollers so the knowledge would stay in the club. I now mentor the next team preparing for TAC and RoboSub.</p>
+  </section>
+
+  <section>
+    <p class="eyebrow">04 · Results</p>
+    <h2>Finals in Singapore, and a paper</h2>
+    <div class="result">
+      <div><strong>Top 6</strong><span>of 45+ international teams at SAUVC 2025, Singapore Polytechnic. 1st among Indian teams in Round 1.</span></div>
+      <div><strong>RoboVis '26</strong><span>Co-authored "Comprehensive Design and High-Performance Control of an AUV", presented March 2026.</span></div>
+    </div>
+    <div class="video"><iframe src="https://www.youtube.com/embed/_i2n2dTLuUw" title="AUV video" loading="lazy" allow="encrypted-media; picture-in-picture" allowfullscreen></iframe></div>
+  </section>
+
+  <div class="next">
+    <a class="btn btn-line" href="index.html#work">← Back to all work</a>
+    <a class="btn btn-copper" href="mailto:ankurvadlamani@gmail.com">Ask me about this project</a>
+  </div>
+</article>
+<footer>© <span id="y">2026</span> Ankur Vadlamani</footer>
+<script>document.getElementById('y').textContent=new Date().getFullYear()</script>
+</body>
+</html>

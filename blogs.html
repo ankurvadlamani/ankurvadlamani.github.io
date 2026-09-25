@@ -1,320 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blog - Ankur Vadlamani</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Merriweather:wght@400;700&display=swap" rel="stylesheet">
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f7fafc;
-            color: #2d3748;
-        }
-        .blog-post-body {
-            font-family: 'Merriweather', serif;
-        }
-        #modal {
-            transition: opacity 0.3s ease;
-        }
-        .prose {
-            font-family: 'Merriweather', serif;
-            line-height: 1.75;
-        }
-        .prose h2 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-            margin-top: 2em;
-            margin-bottom: 1em;
-        }
-        .prose h3 {
-            font-family: 'Poppins', sans-serif;
-            font-weight: 600;
-        }
-        .prose a {
-            color: #4299e1;
-            text-decoration: underline;
-        }
-        .prose blockquote {
-            border-left-color: #4299e1;
-            font-style: italic;
-        }
-        .blog-entry:hover {
-            background-color: #edf2f7;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Blog | Ankur Vadlamani</title>
+<meta name="description" content="Notes and write-ups by Ankur Vadlamani on embedded systems, IoT, robotics and the things he builds.">
+<meta name="theme-color" content="#0F1714">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F1714'/%3E%3Ccircle cx='32' cy='32' r='20' fill='none' stroke='%23C97B3D' stroke-width='5'/%3E%3Ctext x='32' y='38' text-anchor='middle' font-family='monospace' font-weight='700' font-size='17' fill='%23F4F1EA'%3EAV%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
 </head>
-<body class="antialiased">
+<body data-page="blog">
+<header id="site-nav"></header>
 
-    <!-- Header -->
-    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-xl font-bold text-gray-800">Ankur Vadlamani</a>
-            <nav>
-                <a href="index.html#contact" class="text-sm text-gray-600 hover:text-blue-500 transition-colors">Contact</a>
-            </nav>
-        </div>
-    </header>
+<section class="page-head dark traces">
+  <div class="wrap">
+    <p class="eyebrow">Blog</p>
+    <h1>Notes from the bench</h1>
+    <p>Write-ups on the things I build and learn, from embedded systems and IoT to robotics.</p>
+  </div>
+</section>
 
-    <main class="py-20 md:py-28">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-800">My Blog</h1>
-                <p class="mt-3 text-lg text-gray-600">Thoughts on technology, design, and everything in between.</p>
-            </div>
+<main class="wrap"><div class="posts" id="posts"></div></main>
+<article class="article wrap narrow" id="article" aria-live="polite"></article>
 
-            <div id="blog-posts-container" class="max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
-                <!-- Blog posts will be dynamically inserted here by JavaScript -->
-            </div>
-        </div>
-    </main>
-    
-    
-    <!-- Blog Post Modal -->
-    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
-        <div id="modal-content" class="bg-white rounded-lg shadow-2xl w-full max-w-3xl max-h-full overflow-y-auto">
-            <!-- Modal content will be populated by JS -->
-        </div>
-    </div>
+<footer id="site-footer"></footer>
 
-    <footer class="bg-gray-800 text-white py-6">
-        <div class="container mx-auto px-6 text-center text-sm">
-            <p>&copy; 2025 Ankur Vadlamani. All Rights Reserved.</p>
-        </div>
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            function pic(src, caption = "") {
-    return `
-        <figure class="my-8">
-            <img
-                src="${src}"
-                alt="${caption}"
-                class="w-full rounded-lg shadow-lg"
-            >
-            ${
-                caption
-                    ? `<figcaption class="text-center text-sm text-gray-500 mt-2">${caption}</figcaption>`
-                    : ""
-            }
-        </figure>
-    `;
-}
-            const posts = [
-            {
-    id: 1,
-    image: "https://i.postimg.cc/3JKjKxTj/image.png",
-    alt: "Low bandwidth transmission",
-    category: "Physics",
-    date: "December 17, 2025",
-    title: "EdgeAI-Enabled Smart Parking System for Efficient, Low-Cost Occupancy Detection",
-    excerpt: "Urban transportation systems are undergoing a profound transformation as cities grow denser and vehicle ownership continues to rise...",
-
-    contentHTML: `
-
-<p>
-Urban transportation systems are undergoing a profound transformation as cities grow denser and vehicle ownership continues to rise. One of the most persistent contributors to traffic congestion is the challenge of finding available parking spaces. Drivers often spend several minutes searching for parking, leading to wasted time, fuel consumption, and unnecessary emissions.
-</p>
-
-${pic(
-"https://i.postimg.cc/3JKjKxTj/image.png",
-"Overview of the proposed EdgeAI-enabled Smart Parking System"
-)}
-
-<p>
-Smart parking systems have emerged as an important component of modern smart city infrastructure. Their objective is to provide real-time parking availability, reducing congestion and improving traffic flow. Conventional systems typically install an IoT node at every parking slot which continuously transmits occupancy information to a cloud server.
-</p>
-
-<p>
-Although effective, this architecture introduces several limitations including excessive bandwidth usage, higher deployment costs, poor scalability, and increased power consumption.
-</p>
-
-
-<h2>Challenges with Existing Systems</h2>
-
-<p>
-One of the biggest issues is redundant communication. Parking slots often remain occupied or vacant for long periods, yet the sensors repeatedly transmit identical information. Across hundreds of parking spaces this creates a large amount of unnecessary network traffic.
-</p>
-
-<p>
-Scalability is another major concern. Every parking slot requires a microcontroller with wireless communication capability. As the parking lot grows, installation and maintenance costs increase dramatically.
-</p>
-
-<p>
-Battery-powered sensor nodes also suffer from reduced operating lifetime because of continuous wireless transmissions.
-</p>
-
-
-
-<h2>Proposed EdgeAI Architecture</h2>
-
-<p>
-To overcome these limitations, this project introduces an EdgeAI-enabled smart parking architecture based on cluster heads.
-</p>
-
-<p>
-Instead of equipping every parking slot with an expensive communication-enabled controller, each slot contains only a low-cost sensor such as an ultrasonic, infrared, or magnetometer sensor. These sensors forward raw measurements to a nearby ESP32-based cluster head.
-</p>
-
-
-<p>
-The cluster head performs feature extraction and executes a lightweight machine learning model locally. By predicting whether the parking slot is likely to change state, it determines whether transmitting data to the cloud is actually necessary.
-</p>
-
-<p>
-Only meaningful occupancy changes are transmitted, significantly reducing network traffic while maintaining real-time accuracy.
-</p>
-
-<h2>Benefits</h2>
-
-<p>
-The proposed architecture offers several important advantages:
-</p>
-
-<ul>
-<li>Reduced bandwidth consumption</li>
-<li>Lower cloud communication costs</li>
-<li>Improved battery lifetime</li>
-<li>Better scalability for large parking facilities</li>
-<li>Lower installation cost</li>
-</ul>
-
-
-
-<h2>Applications</h2>
-
-<p>
-This system can be deployed in shopping malls, universities, airports, office campuses, smart cities, and residential communities. The reduced infrastructure requirements make it economically feasible for large-scale deployments.
-</p>
-
-
-
-<h2>Conclusion</h2>
-
-<p>
-The proposed EdgeAI-enabled Smart Parking System addresses the major shortcomings of conventional IoT parking infrastructures through local intelligence and predictive communication. By combining inexpensive sensors with lightweight machine learning at the edge, the system improves energy efficiency, reduces operational costs, and enables highly scalable deployments suitable for future smart city environments.
-</p>
-
-`
-},
-                {
-                    id: 2,
-                    image: "https://placehold.co/800x400/E2E8F0/2D3748?text=Embedded+Systems",
-                    alt: "Embedded Systems",
-                    category: "Hardware",
-                    date: "July 30, 2025",
-                    title: "Getting Started with Raspberry Pi Pico",
-                    excerpt: "The Raspberry Pi Pico is a low-cost, high-performance microcontroller board with flexible digital interfaces. Unlike its bigger siblings, it's not a computer...",
-                    contentHTML: `
-                        <p>This is the full content for the Raspberry Pi Pico post. The Raspberry Pi Pico is a low-cost, high-performance microcontroller board with flexible digital interfaces. Unlike its bigger siblings, it's not a computer, but a microcontroller. This makes it perfect for embedded projects where you need real-time control.</p>
-                        <p>Here you can elaborate on how to get started, what pins to use, and provide code examples if you wish.</p>
-                    `
-                } 
-            ];
-
-            const container = document.getElementById('blog-posts-container');
-            if (container) {
-                posts.forEach(post => {
-                    const postElement = document.createElement('a');
-                    postElement.href = "#";
-                    postElement.className = 'blog-entry block p-4 -mx-4 rounded-lg transition-colors duration-200';
-                    postElement.onclick = (e) => {
-                        e.preventDefault();
-                        openModal(post.id);
-                    };
-                    postElement.innerHTML = `
-<div class="flex items-center gap-4">
-
-    <img
-        src="${post.image}"
-        alt="${post.alt}"
-        class="w-24 h-16 object-cover rounded-lg flex-shrink-0"
-    >
-
-    <div class="flex-1">
-
-        <div class="flex justify-between items-start">
-
-            <h3 class="text-xl font-semibold text-gray-800">
-                ${post.title}
-            </h3>
-
-            <p class="text-sm text-gray-500 ml-4 whitespace-nowrap">
-                ${post.date}
-            </p>
-
-        </div>
-
-        <p class="text-sm text-blue-600 font-medium">
-            ${post.category}
-        </p>
-
-    </div>
-
-</div>
-`;
-                    container.appendChild(postElement);
-
-                    const divider = document.createElement('hr');
-                    if (posts.indexOf(post) < posts.length - 1) {
-                        container.appendChild(divider);
-                    }
-                });
-            }
-
-            const modal = document.getElementById('modal');
-            const modalContent = document.getElementById('modal-content');
-
-            window.openModal = function(postId) {
-                const post = posts.find(p => p.id === postId);
-                if (!post || !modal || !modalContent) return;
-
-                modalContent.innerHTML = `
-                    <article class="p-6 md:p-8">
-                        <header class="mb-8 text-center">
-                            <p class="text-sm text-gray-500">${post.category} &bull; ${post.date}</p>
-                            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mt-2 leading-tight">${post.title}</h1>
-                        </header>
-                        
-                        <div class="prose lg:prose-lg max-w-none text-gray-800">
-                            ${post.contentHTML}
-                        </div>
-                        <div class="text-center mt-12">
-                            <button onclick="closeModal()" class="bg-blue-500 text-white font-semibold px-6 py-2 rounded-lg shadow-lg hover:bg-blue-600 transition-colors">Close</button>
-                        </div>
-                    </article>
-                `;
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                document.body.style.overflow = 'hidden';
-            }
-
-            window.closeModal = function() {
-                if (!modal) return;
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-                document.body.style.overflow = 'auto';
-            }
-            
-            if (modal) {
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) {
-                        closeModal();
-                    }
-                });
-            }
-            
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    closeModal();
-                }
-            });
-        });
-    </script>
-
+<script src="assets/js/site.js"></script>
+<script src="assets/data/posts.js"></script>
+<script src="assets/js/blog.js"></script>
 </body>
 </html>

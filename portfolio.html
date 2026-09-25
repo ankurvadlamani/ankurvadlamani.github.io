@@ -1,217 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio - Ankur Vadlamani</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
-    <style>
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f7fafc;
-            color: #2d3748;
-        }
-        .portfolio-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .portfolio-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
-        #modal {
-            transition: opacity 0.3s ease;
-        }
-        .video-container {
-            position: relative;
-            padding-bottom: 56.25%; /* 16:9 */
-            height: 0;
-            overflow: hidden;
-            max-width: 100%;
-            background: #000;
-        }
-        .video-container iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Projects | Ankur Vadlamani</title>
+<meta name="description" content="Projects by Ankur Vadlamani across robotics, embedded systems, electronics and RF.">
+<meta name="theme-color" content="#0F1714">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230F1714'/%3E%3Ccircle cx='32' cy='32' r='20' fill='none' stroke='%23C97B3D' stroke-width='5'/%3E%3Ctext x='32' y='38' text-anchor='middle' font-family='monospace' font-weight='700' font-size='17' fill='%23F4F1EA'%3EAV%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/site.css">
 </head>
-<body class="antialiased">
+<body data-page="projects">
+<header id="site-nav"></header>
 
-    <!-- Header -->
-    <header class="bg-white/80 backdrop-blur-md sticky top-0 z-50 shadow-sm">
-        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="index.html" class="text-xl font-bold text-gray-800">Ankur Vadlamani</a>
-            <nav>
-                <a href="index.html#contact" class="text-sm text-gray-600 hover:text-blue-500 transition-colors">Contact</a>
-            </nav>
-        </div>
-    </header>
+<section class="page-head dark traces">
+  <div class="wrap">
+    <p class="eyebrow">Projects</p>
+    <h1>Things I've built</h1>
+    <p>Robots, controllers, instruments and radios. Each project lists the problem, my part in it and what came out of it.</p>
+  </div>
+</section>
 
-    <main class="py-20 md:py-28">
-        <div class="container mx-auto px-6">
-            <div class="text-center mb-16">
-                <h1 class="text-4xl md:text-5xl font-bold text-gray-800">My Projects</h1>
-                <p class="mt-3 text-lg text-gray-600">A complete collection of my work.</p>
-            </div>
+<main class="wrap">
+  <div class="filters" id="filters" role="toolbar" aria-label="Filter projects"></div>
+  <div class="grid" id="grid"></div>
+</main>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-                <!-- All project cards will be populated by JS -->
-            </div>
-        </div>
-    </main>
-    
-    <!-- Project Modal -->
-    <div id="modal" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden items-center justify-center p-4">
-        <div id="modal-content" class="bg-white rounded-lg shadow-2xl w-full max-w-3xl max-h-full overflow-y-auto">
-            <!-- Modal content will be populated by JS -->
-        </div>
-    </div>
+<div class="modal" id="project-modal" role="dialog" aria-modal="true" aria-labelledby="m-title">
+  <div class="sheet">
+    <button class="x" aria-label="Close">✕</button>
+    <div class="sheet-top"><p class="eyebrow" id="m-cat"></p><h2 id="m-title"></h2><p id="m-sum"></p></div>
+    <div class="sheet-body" id="m-body"></div>
+  </div>
+</div>
 
-    <footer class="bg-gray-800 text-white py-6">
-        <div class="container mx-auto px-6 text-center text-sm">
-            <p>&copy; 2025 Ankur Vadlamani. All Rights Reserved.</p>
-        </div>
-    </footer>
+<footer id="site-footer"></footer>
 
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            lucide.createIcons();
-            
-            const projects = [
-                    {
-                        id: 1,
-                        title: "Autonomous Underwater Vehicle",
-                        image: "https://i.postimg.cc/Y2ZXZ8r4/auv-cover.jpg",
-                        detailImage: "https://i.postimg.cc/W3y2g1fM/AUV-Detail.jpg",
-                        videoUrl: "https://www.youtube.com/embed/_i2n2dTLuUw", 
-                        description: "This project involved designing and building an AUV for underwater exploration tasks. I was responsible for the power distribution system and sensor integration.",
-                        projectGoal: "To create a fully autonomous vehicle capable of navigating a pre-defined course and performing specific tasks like object detection.",
-                        keyChallenges: "Ensuring all electronic components were designed properly with respect to the size constraints, waterproofed and managing power consumption for extended missions were the few biggest hurdles we overcame.",
-                        technologies: ["KiCad", "Jetson Nano", "Micro Python", "Fusion 360" ]
-                    },
-                    {
-                        id: 2,
-                        title: "Precision dispensing system",
-                        image: "https://i.postimg.cc/68FGPqGY/Dispenser-Detail.jpg",
-                        detailImage: "https://i.postimg.cc/68FGPqGY/Dispenser-Detail.jpg",
-                        videoUrl: "https://www.youtube.com/embed/lHVSn8xIPrY",
-                        description: "Developed a high-precision system for dispensing micro-liters of fluid, controlled by a custom circuit and firmware.",
-                        projectGoal: "To achieve a dispensing accuracy of +/- 1 microliter with a responsive user interface for calibration and operation.",
-                        keyChallenges: "Calibrating the stepper motor for precise movements and designing the system to fit the form factor.",
-                        technologies: ["Pico W", "Micro Python", "Stepper Motors", "Easy-EDA"]
-                    },
-                 {
-                        id: 3,
-                        title: "Robotised production line using PLC's, ABB and KUKA robots",
-                        image: "https://i.postimg.cc/SxP4qsCm/Whats-App-Image-2026-07-17-at-16-52-53.jpg",
-                        detailImage: "https://i.postimg.cc/SxP4qsCm/Whats-App-Image-2026-07-17-at-16-52-53.jpg",
-                        videoUrl: "https://www.youtube.com/embed/kaGMUaQguao?si=Qdds_nhyoGUQIs9R",
-                        description: "Developed a production line to handle a hybrid approached based system to assemble pallets.",
-                        projectGoal: "To create a production line which handles assembly of multiple components onto the pallets with maximum efficiency",
-                        keyChallenges: "Developing the program with multiple safety mechanisms so that the process runs with no conflits.",
-                        technologies: ["PLC", "ABB", "KUKA", "Sequential Function Chart (SFC)"]
-                    },
-                {
-                        id: 4,
-                        title: "ESP based PLC",
-                        image: "https://i.postimg.cc/FRFPrDpN/plc.png",
-                        detailImage: "https://i.postimg.cc/FRFPrDpN/plc.png",
-                        videoUrl: "https://i.postimg.cc/FRFPrDpN/plc.png",
-                        description: "Developed a PLC like architecture using ESP which can be controlled and monitored with a web interface hosted by the microcontroller.",
-                        projectGoal: "To engineer a cost-effective prototype that emulates industrial PLC functionality at a fraction of the market price.",
-                        keyChallenges: "Creating a galvanic isolation between the interfaces and the microcontroller while maintaining reliability robustness and responsiveness of the system",
-                        technologies: ["ESP32", "Optocouplers", "CAN", "Ki-CAD", "Arduino IDE", "Buck Converters"]
-                    }
-                ];
-
-
-            const portfolioContainer = document.querySelector('.grid');
-            if (portfolioContainer) {
-                projects.forEach((project) => {
-                    const card = document.createElement('div');
-                    card.className = `bg-white rounded-lg shadow-lg overflow-hidden portfolio-card`;
-                    card.innerHTML = `
-                        <img src="${project.image}" alt="${project.title}" class="w-full h-56 object-cover">
-                        <div class="p-6">
-                            <h3 class="text-xl font-semibold mb-2 text-gray-800">${project.title}</h3>
-                            <p class="text-gray-600 mb-4 text-sm">${project.description.substring(0, 100)}...</p>
-                            <button onclick="openModal(${project.id})" class="text-blue-500 hover:underline font-medium text-sm">View Details &rarr;</button>
-                        </div>
-                    `;
-                    portfolioContainer.appendChild(card);
-                });
-            }
-
-            const modal = document.getElementById('modal');
-            const modalContent = document.getElementById('modal-content');
-    
-            window.openModal = function(projectId) {
-                const project = projects.find(p => p.id === projectId);
-                if (!project || !modal || !modalContent) return;
-
-                let mediaHtml = '';
-                if (project.videoUrl) {
-                    mediaHtml = `
-                        <div class="video-container rounded-lg mb-6">
-                            <iframe src="${project.videoUrl}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        </div>
-                    `;
-                } else {
-                    mediaHtml = `<img src="${project.detailImage}" alt="${project.title}" class="w-full rounded-lg mb-6">`;
-                }
-                
-                modalContent.innerHTML = `
-                    <div class="p-6 md:p-8">
-                        <div class="flex justify-between items-start mb-4">
-                            <h2 class="text-2xl md:text-3xl font-bold text-gray-800">${project.title}</h2>
-                            <button onclick="closeModal()" class="text-gray-500 hover:text-gray-800 p-2 -mr-2 -mt-2 text-2xl leading-none">&times;</button>
-                        </div>
-                        ${mediaHtml}
-                        <h3 class="text-xl font-semibold mb-2">Project Goal</h3>
-                        <p class="text-gray-700 leading-relaxed mb-6">${project.projectGoal}</p>
-                        
-                        <h3 class="text-xl font-semibold mb-2">Key Challenges</h3>
-                        <p class="text-gray-700 leading-relaxed mb-6">${project.keyChallenges}</p>
-
-                        <h3 class="text-xl font-semibold mb-3">Technologies Used</h3>
-                        <div class="flex flex-wrap gap-3">
-                            ${project.technologies.map(tech => `<span class="bg-blue-100 text-blue-800 text-sm font-medium px-4 py-2 rounded-full">${tech}</span>`).join('')}
-                        </div>
-                    </div>
-                `;
-                modal.classList.remove('hidden');
-                modal.classList.add('flex');
-                document.body.style.overflow = 'hidden';
-            }
-
-            window.closeModal = function() {
-                if (!modal) return;
-                modal.classList.add('hidden');
-                modal.classList.remove('flex');
-                document.body.style.overflow = 'auto';
-            }
-            
-            if (modal) {
-                modal.addEventListener('click', (e) => {
-                    if (e.target === modal) {
-                        closeModal();
-                    }
-                });
-            }
-            
-            document.addEventListener('keydown', (e) => {
-                if (e.key === 'Escape') {
-                    closeModal();
-                }
-            });
-        });
-    </script>
+<script src="assets/js/site.js"></script>
+<script src="assets/data/projects.js"></script>
+<script src="assets/js/projects.js"></script>
 </body>
 </html>
